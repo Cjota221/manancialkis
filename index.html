@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sistema de Conteúdo — @manancialkids3</title>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#2277cc; --blue-bg:#e8f1fb; --blue-mid:#6aaae8; --blue-dark:#0c447c;
+  --pink:#cc2277; --pink-bg:#fce8f3; --pink-mid:#e87ab3; --pink-dark:#72243e;
+  --bg:#f4f5f7; --card:#ffffff; --border:#e2e8f0; --border-s:#c8d5e8;
+  --ink:#0f1923; --ink-mid:#3a4a5c; --ink-muted:#6b7a8d; --ink-faint:#9aabb8;
+  --r:12px; --r-sm:8px;
+  --nav-h:56px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;overflow-x:hidden;
+  padding-bottom:80px;
+}
+
+/* ── STICKY TOP NAV ── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+}
+
+.topbar-inner{
+  display:flex;align-items:center;
+  padding:0 16px;height:var(--nav-h);
+  gap:0;
+}
+
+.brand{
+  font-family:'League Spartan',sans-serif;
+  font-weight:900;font-size:17px;letter-spacing:.5px;
+  color:var(--blue-dark);white-space:nowrap;
+  padding-right:14px;border-right:1px solid var(--border);
+  margin-right:4px;
+}
+
+/* scrollable pill nav */
+.pill-nav{
+  display:flex;align-items:center;gap:4px;
+  overflow-x:auto;padding:8px 0;
+  scrollbar-width:none;-ms-overflow-style:none;
+  flex:1;
+}
+.pill-nav::-webkit-scrollbar{display:none}
+
+.pill{
+  display:flex;align-items:center;
+  font-family:'Poppins',sans-serif;font-size:11px;font-weight:500;
+  padding:6px 13px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--border);color:var(--ink-muted);
+  white-space:nowrap;transition:all .15s;background:transparent;
+  user-select:none;-webkit-user-select:none;
+}
+.pill:hover{border-color:var(--border-s);color:var(--ink)}
+.pill.ab{background:var(--blue);border-color:var(--blue);color:#fff}
+.pill.ap{background:var(--pink);border-color:var(--pink);color:#fff}
+
+/* progress badge */
+.prog-badge{
+  margin-left:auto;padding-left:12px;flex-shrink:0;
+  font-size:11px;font-weight:600;
+  color:var(--blue-dark);white-space:nowrap;
+  border-left:1px solid var(--border);
+}
+
+/* ── HERO ── */
+.hero{
+  background:var(--card);border-bottom:1px solid var(--border);
+  padding:40px 20px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:600px;height:300px;
+  background:radial-gradient(ellipse,rgba(34,119,204,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.badge{
+  display:inline-block;
+  background:var(--blue);color:#fff;
+  font-family:'League Spartan',sans-serif;font-weight:700;
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  padding:5px 14px;border-radius:2px;margin-bottom:16px;
+}
+.badge.p{background:var(--pink)}
+
+.hero h1{
+  font-family:'League Spartan',sans-serif;font-weight:900;
+  font-size:clamp(44px,10vw,88px);line-height:.88;letter-spacing:-2px;
+  color:var(--ink);
+}
+.hero h1 span{color:var(--blue);display:block}
+
+.hero-sub{
+  margin-top:16px;font-size:14px;color:var(--ink-muted);
+  max-width:460px;margin-left:auto;margin-right:auto;line-height:1.65;
+}
+
+/* ── KPI STRIP ── */
+.kpi-strip{
+  display:flex;overflow-x:auto;gap:0;
+  border-bottom:1px solid var(--border);
+  background:var(--card);
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.kpi-strip::-webkit-scrollbar{display:none}
+
+.kpi{
+  flex:0 0 auto;min-width:110px;
+  padding:16px 20px;text-align:center;
+  border-right:1px solid var(--border);
+}
+.kpi:last-child{border-right:none}
+
+.kpi-num{
+  font-family:'League Spartan',sans-serif;font-weight:900;
+  font-size:28px;line-height:1;display:block;
+}
+.kpi-num.b{color:var(--blue)}
+.kpi-num.p{color:var(--pink)}
+.kpi-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;display:block;line-height:1.3}
+
+/* ── SECTIONS ── */
+.section{display:none;padding:20px 16px 0}
+.section.active{display:block}
+
+.sec-head{text-align:center;padding:8px 0 24px}
+.sec-head h2{
+  font-family:'League Spartan',sans-serif;font-weight:900;
+  font-size:clamp(26px,6vw,44px);letter-spacing:-1px;color:var(--ink);margin-top:10px;
+}
+.sec-head p{font-size:13px;color:var(--ink-muted);margin-top:8px;line-height:1.5}
+
+/* ── CARD BASE ── */
+.cb{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px;
+  position:relative;overflow:hidden;
+}
+.cb::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.cb.b::before{background:var(--blue)}
+.cb.p::before{background:var(--pink)}
+
+/* ── RESPONSIVE GRID ── */
+.g1{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:24px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:24px}
+
+@media(max-width:600px){
+  .g2,.g3{grid-template-columns:1fr}
+  .g2.force2{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:601px) and (max-width:800px){
+  .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ── DIAG CARDS ── */
+.dnum{
+  font-family:'League Spartan',sans-serif;font-weight:900;font-size:60px;
+  position:absolute;top:6px;right:12px;line-height:1;pointer-events:none;
+}
+.cb.b .dnum{color:rgba(34,119,204,.06)}
+.cb.p .dnum{color:rgba(204,34,119,.06)}
+
+.dlbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:block}
+.dtitle{font-family:'League Spartan',sans-serif;font-weight:700;font-size:18px;line-height:1.15;margin-bottom:8px}
+.cb.b .dtitle{color:var(--blue)}
+.cb.p .dtitle{color:var(--pink)}
+.dbody{font-size:12px;color:var(--ink-mid);line-height:1.6}
+
+.tag{
+  display:inline-block;font-size:9px;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-top:12px;
+}
+.tag.b{background:var(--blue-bg);color:var(--blue-dark)}
+.tag.p{background:var(--pink-bg);color:var(--pink-dark)}
+.tag.stop{background:#fde8e8;color:#c0392b}
+.tag.go{background:#e8f8ee;color:#1a7a3a}
+.tag.warn{background:#fef8e7;color:#8a6200}
+
+/* ── TIMELINE (mobile-first) ── */
+.tl{position:relative;margin-bottom:24px}
+
+/* vertical line left on mobile */
+.tl::before{
+  content:'';position:absolute;
+  left:22px;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,var(--blue),var(--pink),var(--blue));
+  opacity:.2;
+}
+
+.tl-item{
+  display:flex;gap:12px;
+  margin-bottom:20px;
+  animation:fadeUp .5s ease both;
+}
+.tl-item:nth-child(1){animation-delay:.05s}
+.tl-item:nth-child(2){animation-delay:.1s}
+.tl-item:nth-child(3){animation-delay:.15s}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.tl-node{
+  flex-shrink:0;width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'League Spartan',sans-serif;font-weight:900;font-size:12px;
+  border:2px solid;background:var(--card);z-index:1;
+  letter-spacing:.5px;
+}
+.tl-node.b{border-color:var(--blue);color:var(--blue)}
+.tl-node.p{border-color:var(--pink);color:var(--pink)}
+
+.tl-body{flex:1;min-width:0}
+.tl-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px;display:block}
+.tl-title{font-family:'League Spartan',sans-serif;font-weight:700;font-size:17px;line-height:1.1;margin-bottom:10px}
+.tl-item.b .tl-title{color:var(--blue)}
+.tl-item.p .tl-title{color:var(--pink)}
+.tl-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tl-li{display:flex;gap:7px;font-size:12px;color:var(--ink-mid);line-height:1.45;align-items:flex-start}
+.tl-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.tl-item.b .tl-dot{background:var(--blue)}
+.tl-item.p .tl-dot{background:var(--pink)}
+
+.ibox{
+  margin-top:12px;background:var(--bg);
+  border:1px dashed var(--border-s);border-radius:var(--r-sm);padding:10px 12px;
+}
+.ibox-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px;display:block}
+.ibox-txt{font-size:11px;color:var(--ink-muted)}
+
+/* ── ERRO CARDS ── */
+.ecard{
+  background:var(--card);border:1px solid var(--border);
+  border-left:3px solid var(--pink);
+  border-radius:0 var(--r) var(--r) 0;
+  padding:16px 18px;display:flex;gap:14px;align-items:flex-start;
+  margin-bottom:10px;
+}
+.enum{
+  font-family:'League Spartan',sans-serif;font-weight:900;font-size:36px;
+  color:var(--pink-bg);line-height:1;flex-shrink:0;min-width:40px;
+  -webkit-text-stroke:1px var(--pink-mid);
+}
+.etitle{font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--pink);margin-bottom:4px;line-height:1.1}
+.edesc{font-size:12px;color:var(--ink-mid);line-height:1.6}
+
+/* ── SEMANAS (scroll horizontal on mobile) ── */
+.semanas-scroll{
+  display:flex;gap:12px;overflow-x:auto;
+  padding-bottom:8px;margin-bottom:24px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.semanas-scroll::-webkit-scrollbar{display:none}
+
+.scard{
+  flex:0 0 240px;background:var(--card);
+  border:1px solid var(--border);border-radius:var(--r);
+  padding:20px;position:relative;overflow:hidden;
+}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.scard.s1::before,.scard.s3::before{background:var(--pink)}
+.scard.s2::before,.scard.s4::before{background:var(--blue)}
+
+.sbg{
+  font-family:'League Spartan',sans-serif;font-weight:900;font-size:72px;
+  position:absolute;bottom:-6px;right:8px;line-height:1;pointer-events:none;
+}
+.scard.s1 .sbg,.scard.s3 .sbg{color:var(--pink-bg)}
+.scard.s2 .sbg,.scard.s4 .sbg{color:var(--blue-bg)}
+
+.snum{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px;display:block}
+.stitle{font-family:'League Spartan',sans-serif;font-weight:700;font-size:18px;margin-bottom:12px;line-height:1.1}
+.scard.s1 .stitle,.scard.s3 .stitle{color:var(--pink)}
+.scard.s2 .stitle,.scard.s4 .stitle{color:var(--blue)}
+
+.sitems{list-style:none;display:flex;flex-direction:column;gap:6px}
+.sitem{font-size:12px;color:var(--ink-mid);line-height:1.45;display:flex;gap:7px;align-items:flex-start}
+.sdot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.scard.s1 .sdot,.scard.s3 .sdot{background:var(--pink)}
+.scard.s2 .sdot,.scard.s4 .sdot{background:var(--blue)}
+
+/* ── CHECKLIST ── */
+.prog-bar-wrap{margin-bottom:20px}
+.prog-track{height:5px;background:var(--bg);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.prog-fill{height:100%;background:linear-gradient(to right,var(--blue),var(--pink));transition:width .4s ease}
+.prog-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);margin-top:6px;text-align:center}
+
+.chk-group{margin-bottom:24px}
+.chk-gtitle{
+  font-family:'League Spartan',sans-serif;font-weight:700;font-size:16px;
+  letter-spacing:.5px;margin-bottom:10px;
+  display:flex;align-items:center;gap:10px;
+}
+.chk-gtitle::after{content:'';flex:1;height:1px;background:var(--border)}
+.chk-gtitle.b{color:var(--blue)}
+.chk-gtitle.p{color:var(--pink)}
+
+.chk-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  cursor:pointer;
+  -webkit-user-select:none;user-select:none;
+}
+.chk-item:last-child{border-bottom:none}
+.chk-item:active{background:var(--bg);border-radius:var(--r-sm)}
+
+.chkbox{
+  width:20px;height:20px;border-radius:4px;
+  border:1.5px solid var(--border-s);
+  flex-shrink:0;margin-top:0px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;background:transparent;cursor:pointer;
+}
+.chkbox.b{background:var(--blue);border-color:var(--blue)}
+.chkbox.p{background:var(--pink);border-color:var(--pink)}
+.chkbox svg{display:none}
+.chkbox.b svg,.chkbox.p svg{display:block}
+
+.chk-lbl{font-size:13px;color:var(--ink-mid);line-height:1.5;flex:1}
+.chk-lbl.done{text-decoration:line-through;color:var(--ink-faint)}
+
+.chk-tag{
+  display:inline-block;font-size:9px;font-weight:600;letter-spacing:1px;
+  text-transform:uppercase;padding:3px 7px;border-radius:2px;
+  white-space:nowrap;align-self:flex-start;margin-top:2px;flex-shrink:0;
+}
+.chk-tag.b{background:var(--blue-bg);color:var(--blue-dark)}
+.chk-tag.p{background:var(--pink-bg);color:var(--pink-dark)}
+.chk-tag.stop{background:#fde8e8;color:#c0392b}
+
+/* ── CONTEÚDOS ── */
+.con-card{padding:20px;margin-bottom:14px}
+.con-num{
+  font-family:'League Spartan',sans-serif;font-weight:900;font-size:56px;
+  position:absolute;top:4px;right:12px;line-height:1;pointer-events:none;
+}
+.cb.b .con-num{color:var(--blue-bg)}
+.cb.p .con-num{color:var(--pink-bg)}
+.con-fmt{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px;display:block}
+.con-day{font-size:11px;color:var(--ink-faint);margin-bottom:12px;display:block}
+.con-hook{font-family:'League Spartan',sans-serif;font-weight:700;font-size:17px;line-height:1.2;margin-bottom:14px;color:var(--ink)}
+.con-steps{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
+.con-step{display:flex;gap:8px;font-size:12px;color:var(--ink-mid);line-height:1.5}
+.stepn{font-family:'League Spartan',sans-serif;font-size:12px;flex-shrink:0;min-width:34px}
+.cb.b .stepn{color:var(--blue)}
+.cb.p .stepn{color:var(--pink)}
+.cta-pill{
+  display:inline-block;font-size:11px;font-weight:600;padding:7px 14px;
+  border-radius:4px;border:1px solid;letter-spacing:.3px;
+}
+.cb.b .cta-pill{background:var(--blue-bg);color:var(--blue-dark);border-color:var(--blue-mid)}
+.cb.p .cta-pill{background:var(--pink-bg);color:var(--pink-dark);border-color:var(--pink-mid)}
+
+/* ── STORIES SECTION SPECIFICS ── */
+.story-stat-row{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+}
+.story-stat-row:last-child{border-bottom:none}
+.story-rank{
+  font-family:'League Spartan',sans-serif;font-weight:900;
+  font-size:20px;min-width:28px;color:var(--ink-faint);
+}
+.story-info{flex:1;min-width:0}
+.story-title{font-size:12px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:2px}
+.story-type{font-size:10px;color:var(--ink-faint)}
+.story-views{font-size:13px;font-weight:600;text-align:right;white-space:nowrap;flex-shrink:0}
+.story-views.b{color:var(--blue-dark)}
+.story-views.p{color:var(--pink-dark)}
+.story-views.r{color:#c0392b}
+
+.number-highlight{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:16px;text-align:center;margin-bottom:10px;
+}
+.nh-num{
+  font-family:'League Spartan',sans-serif;font-weight:900;
+  font-size:40px;line-height:1;margin-bottom:4px;
+}
+.nh-num.b{color:var(--blue)}
+.nh-num.p{color:var(--pink)}
+.nh-num.r{color:#c0392b}
+.nh-lbl{font-size:11px;color:var(--ink-mid);line-height:1.4}
+
+/* scroll hint arrows */
+.scroll-hint{
+  font-size:10px;color:var(--ink-faint);letter-spacing:1px;
+  text-transform:uppercase;text-align:right;margin-bottom:6px;
+  display:flex;align-items:center;justify-content:flex-end;gap:4px;
+}
+.scroll-hint::after{content:'→';font-size:12px}
+
+/* ── RESULTADO ── */
+.resultado-box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:40px 24px;text-align:center;
+  position:relative;overflow:hidden;margin-bottom:24px;
+}
+.resultado-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(to right,var(--blue),var(--pink));
+}
+.resultado-box h2{
+  font-family:'League Spartan',sans-serif;font-weight:900;
+  font-size:clamp(32px,8vw,56px);letter-spacing:-2px;line-height:.9;margin-bottom:16px;
+}
+.resultado-box h2 .b{color:var(--blue)}
+.resultado-box h2 .p{color:var(--pink)}
+.resultado-box p{font-size:13px;color:var(--ink-muted);line-height:1.7;max-width:380px;margin:0 auto}
+
+/* ── BOTTOM NAV (mobile) ── */
+.bottom-nav{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:var(--card);border-top:1px solid var(--border);
+  padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+  overflow-x:auto;scrollbar-width:none;
+}
+.bottom-nav::-webkit-scrollbar{display:none}
+
+@media(max-width:600px){
+  .bottom-nav{display:flex;gap:6px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+}
+
+.bn-pill{
+  flex:0 0 auto;font-size:10px;font-weight:600;
+  padding:7px 12px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--border);color:var(--ink-muted);
+  white-space:nowrap;transition:all .15s;background:transparent;
+}
+.bn-pill.ab{background:var(--blue);border-color:var(--blue);color:#fff}
+.bn-pill.ap{background:var(--pink);border-color:var(--pink);color:#fff}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+
+/* ── FOOTER ── */
+.footer{
+  text-align:center;padding:24px 16px;
+  border-top:1px solid var(--border);background:var(--card);
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);
+}
+
+/* ── DESKTOP: reintroduce 2-col timeline ── */
+@media(min-width:860px){
+  body{padding-bottom:0}
+  .section{padding:28px 32px 0}
+  .hero{padding:60px 40px 48px}
+  .kpi{min-width:130px;padding:20px 28px}
+
+  .tl{position:relative}
+  .tl::before{
+    left:50%;transform:translateX(-50%);
+    background:linear-gradient(to bottom,var(--blue),var(--pink),var(--blue),var(--pink));
+  }
+  .tl-item{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:start;margin-bottom:48px}
+  .tl-item.b .tl-body{grid-column:1;text-align:right}
+  .tl-item.p .tl-body{grid-column:3;text-align:left;grid-row:1}
+  .tl-item.b .tl-node-wrap{grid-column:2;display:flex;flex-direction:column;align-items:center;padding-top:16px}
+  .tl-item.p .tl-node-wrap{grid-column:2;display:flex;flex-direction:column;align-items:center;padding-top:16px;grid-row:1}
+  .tl-item.b .tl-aside{grid-column:3;padding-left:20px;padding-top:16px}
+  .tl-item.p .tl-aside{grid-column:1;padding-right:20px;padding-top:16px;text-align:right;grid-row:1}
+  .tl-aside-txt{font-size:12px;color:var(--ink-faint);font-style:italic;line-height:1.65}
+  .tl-aside-txt strong{color:var(--ink-mid);font-style:normal}
+  .tl-item.b .tl-list{align-items:flex-end}
+  .tl-item.b .tl-li{flex-direction:row-reverse}
+  .tl-item.b .ibox-items{display:flex;flex-direction:column;align-items:flex-end}
+  .tl-node{width:52px;height:52px;font-size:14px}
+  .tl-node-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;margin-top:4px}
+}
+
+/* ── STORIES STAT GRID ── */
+.st-5-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}
+@media(max-width:400px){.st-5-grid{grid-template-columns:1fr}}
+@media(min-width:860px){.st-5-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+
+<!-- ── STICKY TOP NAV (desktop) ── -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">MK</div>
+    <div class="pill-nav" id="top-nav">
+      <div class="pill ab" onclick="goTo('overview',this)">Visão geral</div>
+      <div class="pill" onclick="goTo('diag',this)">Diagnóstico</div>
+      <div class="pill" onclick="goTo('algo',this)">Algoritmo</div>
+      <div class="pill" onclick="goTo('formatos',this)">Formatos</div>
+      <div class="pill" onclick="goTo('erros',this)">8 Erros</div>
+      <div class="pill" onclick="goTo('stories',this)">Stories</div>
+      <div class="pill" onclick="goTo('plano',this)">Plano 30d</div>
+      <div class="pill" onclick="goTo('checklist',this)">Checklist</div>
+      <div class="pill" onclick="goTo('conteudos',this)">Conteúdos</div>
+    </div>
+    <div class="prog-badge" id="prog-badge">0/20</div>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="badge">@manancialkids3 · Atacado B2B · Goiânia-GO</div>
+  <h1>SISTEMA DE<span>CONTEÚDO</span></h1>
+  <p class="hero-sub">Feed + Stories · Diagnóstico completo + plano de ação em 4 semanas para transformar um perfil catálogo em canal real de aquisição de lojistas.</p>
+</div>
+
+<!-- ── KPI STRIP ── -->
+<div class="kpi-strip">
+  <div class="kpi"><span class="kpi-num b">141K</span><span class="kpi-lbl">Seguidores</span></div>
+  <div class="kpi"><span class="kpi-num b">3,77M</span><span class="kpi-lbl">Views 90d</span></div>
+  <div class="kpi"><span class="kpi-num p">81%</span><span class="kpi-lbl">Views Stories</span></div>
+  <div class="kpi"><span class="kpi-num p">5%</span><span class="kpi-lbl">Interações Stories</span></div>
+  <div class="kpi"><span class="kpi-num b">15H</span><span class="kpi-lbl">Pico atividade</span></div>
+  <div class="kpi"><span class="kpi-num p">1,08%</span><span class="kpi-lbl">Alcance carrossel</span></div>
+  <div class="kpi"><span class="kpi-num b">37</span><span class="kpi-lbl">Cliques CTA direto</span></div>
+  <div class="kpi"><span class="kpi-num p">3,3%</span><span class="kpi-lbl">Penetração Stories</span></div>
+</div>
+
+<!-- ════ VISÃO GERAL ════ -->
+<div id="sec-overview" class="section active">
+  <div class="sec-head">
+    <div class="badge">Visão geral</div>
+    <h2>DIAGNÓSTICO EXECUTIVO</h2>
+    <p>Os 5 números que resumem o problema — e a oportunidade</p>
+  </div>
+
+  <div class="st-5-grid">
+    <div class="number-highlight"><div class="nh-num b">1,97%</div><div class="nh-lbl">Taxa de resposta Stories com gamificação. Todos os outros: 0%</div></div>
+    <div class="number-highlight"><div class="nh-num b">37</div><div class="nh-lbl">Cliques no link WhatsApp pelo único Story com CTA direto</div></div>
+    <div class="number-highlight"><div class="nh-num r">0</div><div class="nh-lbl">Interações no Story "Bom dia / Correios 15h" — formato dominante da rotina</div></div>
+    <div class="number-highlight"><div class="nh-num p">3,3%</div><div class="nh-lbl">Penetração máxima dos Stories em 141k seguidores. Problema estrutural.</div></div>
+    <div class="number-highlight"><div class="nh-num b">81%</div><div class="nh-lbl">Das views totais vêm de Stories. Motor subutilizado como funil B2B</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="cb b">
+      <span class="dlbl">Score feed B2B</span>
+      <div class="dtitle">Catálogo com picos</div>
+      <div class="dbody">75% do feed são carrosséis flat lay. Alcance médio: 1.535 de 141k seguidores. O feed virou mural interno.</div>
+      <span class="tag stop">Crítico</span>
+    </div>
+    <div class="cb p">
+      <span class="dlbl">Score Stories B2B</span>
+      <div class="dtitle">Broadcast sem funil</div>
+      <div class="dbody">81% das views mas 5% das interações. Stories como catálogo estendido — não como ferramenta de qualificação e venda.</div>
+      <span class="tag stop">Crítico</span>
+    </div>
+    <div class="cb b">
+      <span class="dlbl">Padrão top posts</span>
+      <div class="dtitle">Rosto + voz + hook B2B</div>
+      <div class="dbody">100% dos Reels de alto alcance têm proprietária em cena, voz original e hook de confronto. Saves e shares disparam.</div>
+      <span class="tag go">Replicar</span>
+    </div>
+    <div class="cb p">
+      <span class="dlbl">Padrão top Stories</span>
+      <div class="dtitle">Gamificação + CTA direto</div>
+      <div class="dbody">Bombom Premiado: 93 respostas em 4.734 views. "Corre pro grupo": 37 cliques. Formato com ação explícita domina.</div>
+      <span class="tag go">Replicar</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════ DIAGNÓSTICO ════ -->
+<div id="sec-diag" class="section">
+  <div class="sec-head">
+    <div class="badge">Fase 1</div>
+    <h2>DIAGNÓSTICO GERAL</h2>
+    <p>O que o algoritmo enxerga hoje no perfil</p>
+  </div>
+  <div class="g2">
+    <div class="cb b"><div class="dnum">01</div><span class="dlbl">Classificação</span><div class="dtitle">Catálogo com picos emocionais</div><div class="dbody">Meta trata o perfil como negócio de produto físico. Carrosséis dominam 75% do feed e penalizam distribuição.</div><span class="tag stop">Problema central</span></div>
+    <div class="cb p"><div class="dnum">02</div><span class="dlbl">Distribuição</span><div class="dtitle">98,9% invisível para novos</div><div class="dbody">Carrosséis alcançam 1.535 contas de 141k. O algoritmo parou de testar esse conteúdo com novas contas.</div><span class="tag stop">Crítico</span></div>
+    <div class="cb b"><div class="dnum">03</div><span class="dlbl">Bio vs feed</span><div class="dtitle">Promessa sem prova</div><div class="dbody">Bio: "exclusividade 2x/semana". Nenhum post em 90 dias mostra o que é esse lançamento ou qual o valor para a lojista.</div><span class="tag stop">Urgente</span></div>
+    <div class="cb p"><div class="dnum">04</div><span class="dlbl">Padrão top 5</span><div class="dtitle">Rosto + voz + hook B2B</div><div class="dbody">100% dos posts de alto alcance têm proprietária em cena nos 2s iniciais, voz original e hook de confronto.</div><span class="tag go">Replicar</span></div>
+    <div class="cb b"><div class="dnum">05</div><span class="dlbl">Sinais</span><div class="dtitle">Saves superam likes</div><div class="dbody">Reels dez/24: 224 saves + 117 shares → 108 seguimentos. Nenhum carrossel chegou a 20 saves.</div><span class="tag b">Dado real</span></div>
+    <div class="cb p"><div class="dnum">06</div><span class="dlbl">Identidade</span><div class="dtitle">D2C contamina B2B</div><div class="dbody">Republicações de influenciadora D2C confundem o algoritmo sobre para quem distribuir. Atrai consumidora, não lojista.</div><span class="tag stop">Parar já</span></div>
+  </div>
+</div>
+
+<!-- ════ ALGORITMO ════ -->
+<div id="sec-algo" class="section">
+  <div class="sec-head">
+    <div class="badge p">Fase 2</div>
+    <h2>ALGORITMO 2024–2025</h2>
+    <p>Regras de distribuição para moda infantil atacado B2B no Brasil</p>
+  </div>
+  <div class="g2">
+    <div class="cb p"><div class="dnum">R1</div><span class="dlbl">Retenção</span><div class="dtitle">3 segundos decidem tudo</div><div class="dbody">Reels com +60% de retenção após 3s recebem até 5x mais distribuição. Produto no frame inicial = penalidade automática.</div></div>
+    <div class="cb b"><div class="dnum">R2</div><span class="dlbl">Sinais</span><div class="dtitle">Save &gt; Share &gt;&gt; Like</div><div class="dbody">Save = lojista quer rever para comprar. Share = mandou para a sócia. Pesos totalmente diferentes para B2B.</div></div>
+    <div class="cb p"><div class="dnum">R3</div><span class="dlbl">Autenticidade</span><div class="dtitle">Voz humana original</div><div class="dbody">100% dos Reels bem-performados têm voz da proprietária. Algoritmo 2025 prioriza voz original para B2B educativo.</div></div>
+    <div class="cb b"><div class="dnum">R4</div><span class="dlbl">Cascata</span><div class="dtitle">Catálogo contamina Reels</div><div class="dbody">5 carrosséis flat lay em sequência derrubam o alcance dos próximos 3–5 posts. Nunca dois posts no mesmo dia.</div></div>
+    <div class="cb p"><div class="dnum">R5</div><span class="dlbl">Stories</span><div class="dtitle">Taxa de skip penaliza</div><div class="dbody">Média de 65–77% de reencaminhar nos Stories analisados. Esse sinal treina o algoritmo a mostrar o perfil menos.</div></div>
+    <div class="cb b"><div class="dnum">R6</div><span class="dlbl">Janela</span><div class="dtitle">15h — pico absoluto</div><div class="dbody">57.921 seguidores ativos às 15h em todos os dias. Posts fora dessa janela desperdiçam alcance natural.</div></div>
+  </div>
+</div>
+
+<!-- ════ FORMATOS ════ -->
+<div id="sec-formatos" class="section">
+  <div class="sec-head">
+    <div class="badge">Fase 3</div>
+    <h2>ANÁLISE DE FORMATOS</h2>
+    <p>O que priorizar, o que cortar e o mix ideal</p>
+  </div>
+
+  <div class="tl" style="max-width:860px;margin:0 auto">
+    <div class="tl-item b">
+      <div class="tl-node-wrap" style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+        <div class="tl-node b">+5X</div>
+        <span class="tl-node-lbl" style="display:block;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;white-space:nowrap">alcance</span>
+      </div>
+      <div class="tl-body">
+        <span class="tl-label">Formato nº 1 · Prioridade máxima</span>
+        <div class="tl-title">Reels B2B / emocional</div>
+        <ul class="tl-list">
+          <li class="tl-li"><div class="tl-dot"></div>Único formato que distribui fora da base de forma consistente</li>
+          <li class="tl-li"><div class="tl-dot"></div>49–50% de não-seguidores nos Reels emocionais fixados</li>
+          <li class="tl-li"><div class="tl-dot"></div>Hook de confronto + rosto nos primeiros 2 segundos</li>
+          <li class="tl-li"><div class="tl-dot"></div>Voz original · Duração: 60–90 segundos</li>
+        </ul>
+        <div class="ibox"><span class="ibox-lbl">Meta: 3 Reels/semana (hoje: 1–2)</span><div class="ibox-txt">Provocativo B2B · Educativo lojista · Prova social real</div></div>
+      </div>
+      <div class="tl-aside" style="display:none"></div>
+    </div>
+
+    <div class="tl-item p">
+      <div class="tl-node-wrap" style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+        <div class="tl-node p">B2B</div>
+        <span style="display:block;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;white-space:nowrap">educativo</span>
+      </div>
+      <div class="tl-body">
+        <span class="tl-label">Formato nº 2 · Reformular urgente</span>
+        <div class="tl-title">Carrossel educativo lojista</div>
+        <ul class="tl-list">
+          <li class="tl-li"><div class="tl-dot"></div>Slide 1: proprietária com produto + pergunta da lojista</li>
+          <li class="tl-li"><div class="tl-dot"></div>Slides 2–5: argumento de venda para a lojista usar com a cliente</li>
+          <li class="tl-li"><div class="tl-dot"></div>Último slide: preço atacado + CTA + print de feedback real</li>
+        </ul>
+        <div class="ibox"><span class="ibox-lbl">Meta: 3 carrosséis B2B/semana (reduzir flat lay)</span><div class="ibox-txt">Educativo · Prova social · Lançamento de coleção</div></div>
+      </div>
+    </div>
+
+    <div class="tl-item b">
+      <div class="tl-node-wrap" style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+        <div class="tl-node b">81%</div>
+        <span style="display:block;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;white-space:nowrap">das views</span>
+      </div>
+      <div class="tl-body">
+        <span class="tl-label">Formato nº 3 · Potencial não explorado</span>
+        <div class="tl-title">Stories com estrutura narrativa B2B</div>
+        <ul class="tl-list">
+          <li class="tl-li"><div class="tl-dot"></div>81% das views totais — apenas 5% das interações hoje</li>
+          <li class="tl-li"><div class="tl-dot"></div>Gamificação gera 100% das respostas diretas (Bombom: 93 DMs)</li>
+          <li class="tl-li"><div class="tl-dot"></div>CTA direto com sticker de link: único formato que gera cliques (37)</li>
+          <li class="tl-li"><div class="tl-dot"></div>Estrutura: Gancho → Prova → CTA em 3 Stories sequenciais</li>
+        </ul>
+        <div class="ibox"><span class="ibox-lbl">Meta: 4–6 Stories/dia com sequência narrativa</span><div class="ibox-txt">8h–9h abertura · 14h–15h produto · 17h–18h urgência + CTA</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ ERROS FEED ════ -->
+<div id="sec-erros" class="section">
+  <div class="sec-head">
+    <div class="badge p">Fase 4</div>
+    <h2>8 ERROS NO FEED</h2>
+    <p>Encontrados nos dados reais — não erros genéricos de Instagram</p>
+  </div>
+  <div class="ecard"><div class="enum">01</div><div><div class="etitle">98,9% de invisibilidade nos carrosséis</div><div class="edesc">1.535 contas de 141k. Menos de 1 em cada 92 seguidores vê o post. O feed virou mural interno.</div></div></div>
+  <div class="ecard"><div class="enum">02</div><div><div class="etitle">Post com maior taxa de comentários sem CTA</div><div class="edesc">Reels "Será?" — 51 comentários em 4.467 views (1,14%, 10x a média). Nenhuma lojista redirecionada para o grupo.</div></div></div>
+  <div class="ecard"><div class="enum">03</div><div><div class="etitle">Sem horário fixo de postagem</div><div class="edesc">Pico às 15h com 57,9k ativos. Posts em horários variados desperdiçam a maior janela de distribuição.</div></div></div>
+  <div class="ecard"><div class="enum">04</div><div><div class="etitle">Posts fixados para empatia, não conversão</div><div class="edesc">Os 3 fixados são narrativa pessoal. Lojista nova não encontra processo de pedido ou benefício comercial.</div></div></div>
+  <div class="ecard"><div class="enum">05</div><div><div class="etitle">Promessa da bio sem prova no feed</div><div class="edesc">"Exclusividade 2x/semana" na bio. Zero posts em 90 dias explicam o lançamento ou seu valor para a lojista.</div></div></div>
+  <div class="ecard"><div class="enum">06</div><div><div class="etitle">Trilha no lugar de voz humana original</div><div class="edesc">100% dos Reels melhores têm voz da proprietária. 100% dos piores usam trilha. O algoritmo 2025 diferencia.</div></div></div>
+  <div class="ecard"><div class="enum">07</div><div><div class="etitle">Link direto para grupo sem qualificação</div><div class="edesc">16.966 cliques em 90 dias sem filtro. Sem dado de quantos são lojistas reais versus consumidoras finais.</div></div></div>
+  <div class="ecard"><div class="enum">08</div><div><div class="etitle">Conteúdo D2C de influenciadora no perfil B2B</div><div class="edesc">Republicações de @minha_doce.helena atraem consumidora final e confundem o algoritmo sobre distribuição.</div></div></div>
+</div>
+
+<!-- ════ STORIES ════ -->
+<div id="sec-stories" class="section">
+  <div class="sec-head">
+    <div class="badge p">Análise Stories</div>
+    <h2>STORIES B2B</h2>
+    <p>81% das views, 5% das interações — o motor subutilizado</p>
+  </div>
+
+  <!-- top stories -->
+  <div class="cb b" style="margin-bottom:12px">
+    <span class="dlbl">Top Stories 30 dias — por visualizações</span>
+    <div class="story-stat-row">
+      <div class="story-rank">1</div>
+      <div class="story-info"><div class="story-title">Bombom Premiado! — gamificação com chocolate 🎯</div><div class="story-type">Gamificação · 93 respostas diretas · 1,97% taxa de resposta</div></div>
+      <div class="story-views b">4.734</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank">2</div>
+      <div class="story-info"><div class="story-title">"Depois não diz que eu não avisei" — marido com sacola gigante</div><div class="story-type">Bastidores volume · 5 cliques no link</div></div>
+      <div class="story-views b">2.082</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank">3</div>
+      <div class="story-info"><div class="story-title">"Corre para os grupos WhatsApp, lançamentos de hoje"</div><div class="story-type">CTA direto · 37 toques no link · 44 visitas ao perfil 🏆</div></div>
+      <div class="story-views b">2.007</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank">4</div>
+      <div class="story-info"><div class="story-title">"Vocês pediram tanto essa reposição 🦩"</div><div class="story-type">Prova social + urgência implícita</div></div>
+      <div class="story-views b">2.007</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank">5</div>
+      <div class="story-info"><div class="story-title">"Quem sabe me dizer que peça é essa?" — quiz produto</div><div class="story-type">Quiz · Engajamento ativo</div></div>
+      <div class="story-views b">1.900</div>
+    </div>
+  </div>
+
+  <!-- bottom stories -->
+  <div class="cb p" style="margin-bottom:20px">
+    <span class="dlbl">Bottom Stories — menor visualização / menor interação</span>
+    <div class="story-stat-row">
+      <div class="story-rank" style="color:var(--pink)">1</div>
+      <div class="story-info"><div class="story-title">"Bom dia ☀️ Separando pedidos / Correios às 15:00"</div><div class="story-type">0 likes · 0 respostas · 0 cliques — formato dominante da rotina</div></div>
+      <div class="story-views r">386</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank" style="color:var(--pink)">2</div>
+      <div class="story-info"><div class="story-title">"Essa cliente fez pedido com várias peças da copa"</div><div class="story-type">1 resposta · Skip imediato · Formato muito recente</div></div>
+      <div class="story-views r">344</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank" style="color:var(--pink)">3</div>
+      <div class="story-info"><div class="story-title">"Vamos conferir quais foram as mais vendidas da semana"</div><div class="story-type">Conceito B2B bom · Sem CTA de resposta · Resultado zero</div></div>
+      <div class="story-views r">903</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank" style="color:var(--pink)">4</div>
+      <div class="story-info"><div class="story-title">Print de celular com pedido/valor (tela de app)</div><div class="story-type">Texto ilegível em Story vertical — maior abandono</div></div>
+      <div class="story-views r">~950</div>
+    </div>
+    <div class="story-stat-row">
+      <div class="story-rank" style="color:var(--pink)">5</div>
+      <div class="story-info"><div class="story-title">Repost @caroline_azevedo15 — "Não poderia perder essa oportunidade"</div><div class="story-type">77% skip (1.051 de 1.363) · Prova social sem CTA = 0 cliques</div></div>
+      <div class="story-views r">1.363</div>
+    </div>
+  </div>
+
+  <!-- assimetria -->
+  <div class="cb b" style="margin-bottom:12px">
+    <span class="dlbl">Assimetria crítica — mesmo período, mesma audiência</span>
+    <div class="dtitle" style="margin-bottom:12px">1 Story de gamificação vs 5 Stories de catálogo</div>
+    <div class="g2 force2" style="margin-bottom:0">
+      <div style="background:var(--blue-bg);border-radius:var(--r-sm);padding:12px;text-align:center">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:32px;color:var(--blue-dark)">93</div>
+        <div style="font-size:11px;color:var(--blue-dark);margin-top:4px;line-height:1.4">Conversas abertas<br>Bombom Premiado (1 Story)</div>
+      </div>
+      <div style="background:var(--pink-bg);border-radius:var(--r-sm);padding:12px;text-align:center">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:32px;color:var(--pink-dark)">0</div>
+        <div style="font-size:11px;color:var(--pink-dark);margin-top:4px;line-height:1.4">Conversas abertas<br>5 Stories de produto estático</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 erros stories -->
+  <div class="sec-head" style="padding-top:24px">
+    <div class="badge p">8 erros específicos</div>
+    <h2>ERROS NOS STORIES</h2>
+  </div>
+
+  <div class="ecard" style="border-left-color:var(--blue)"><div class="enum" style="-webkit-text-stroke-color:var(--blue-mid);color:var(--blue-bg)">01</div><div><div class="etitle" style="color:var(--blue)">Stories operacionais destroem a sequência</div><div class="edesc">"Bom dia / Correios 15h": 386 views, 0 interações. Esse Story treina o algoritmo a exibir o perfil menos para quem pula. Pertence ao grupo de WhatsApp, não ao Stories de 141k seguidoras.</div></div></div>
+  <div class="ecard" style="border-left-color:var(--blue)"><div class="enum" style="-webkit-text-stroke-color:var(--blue-mid);color:var(--blue-bg)">02</div><div><div class="etitle" style="color:var(--blue)">"Corre pro grupo" aparece 1x/mês, devia ser semanal</div><div class="edesc">37 cliques no link — maior conversão de todos os Stories. Esse formato provou funcionar. Está sendo usado uma vez por mês em vez de toda semana de lançamento.</div></div></div>
+  <div class="ecard"><div class="enum">03</div><div><div class="etitle">Prova social sem CTA não converte</div><div class="edesc">Repost da @caroline_azevedo15: 77% de skip (1.051/1.363) sem CTA explícito. Depoimento de cliente precisa de sticker de link imediatamente embaixo.</div></div></div>
+  <div class="ecard"><div class="enum">04</div><div><div class="etitle">Zero uso de stickers interativos nativos do Instagram</div><div class="edesc">Enquetes, caixinha de perguntas e quiz nativo aumentam retenção em até 3x. Transformam visualização passiva em participação ativa — o algoritmo registra como maior tempo de tela.</div></div></div>
+  <div class="ecard"><div class="enum">05</div><div><div class="etitle">Processo nunca mostrado de forma narrativa</div><div class="edesc">"Bom dia / Correios 15h" mostra resultado mas não processo. Processo gera curiosidade e identificação com lojistas. Aviso de horário gera indiferença.</div></div></div>
+  <div class="ecard"><div class="enum">06</div><div><div class="etitle">Gamificação sem continuação perde o efeito</div><div class="edesc">Bombom Premiado gerou 93 respostas — sem Story de continuação mostrando quem ganhou. Sequências sem conclusão pública perdem o efeito de prova social coletiva nas próximas rodadas.</div></div></div>
+  <div class="ecard"><div class="enum">07</div><div><div class="etitle">Sem arco narrativo entre Stories do mesmo dia</div><div class="edesc">Sequência atual: produto → produto → aviso → produto → repost. Um Stories B2B bem construído tem estrutura: Gancho → Prova → CTA. Isso não existe nos dados analisados.</div></div></div>
+  <div class="ecard"><div class="enum">08</div><div><div class="etitle">Zero sticker de localização para descoberta externa</div><div class="edesc">Sticker "Goiânia — Moda Infantil Atacado" é a forma mais simples de chegar a lojistas que pesquisam fornecedores na cidade sem seguir o perfil. Não foi usado nenhuma vez nos 30 dias.</div></div></div>
+</div>
+
+<!-- ════ PLANO 30 DIAS ════ -->
+<div id="sec-plano" class="section">
+  <div class="sec-head">
+    <div class="badge">Fase 5</div>
+    <h2>PLANO 30 DIAS</h2>
+    <p>Feed + Stories · Parar → Testar → Consolidar → Escalar</p>
+  </div>
+
+  <div class="scroll-hint">deslize para ver as semanas</div>
+  <div class="semanas-scroll">
+    <div class="scard s1">
+      <div class="sbg">S1</div>
+      <span class="snum">Semana 1 · Dias 1–7</span>
+      <div class="stitle">Parar agora</div>
+      <ul class="sitems">
+        <li class="sitem"><div class="sdot"></div>Carrossel flat lay + Reels no mesmo dia</li>
+        <li class="sitem"><div class="sdot"></div>Avisos operacionais no feed E nos Stories</li>
+        <li class="sitem"><div class="sdot"></div>Posts D2C de influenciadora no grid</li>
+        <li class="sitem"><div class="sdot"></div>Posts fora da janela 14h–16h</li>
+        <li class="sitem"><div class="sdot"></div>Stories de produto estático sem CTA</li>
+      </ul>
+    </div>
+    <div class="scard s2">
+      <div class="sbg">S2</div>
+      <span class="snum">Semana 2 · Dias 8–14</span>
+      <div class="stitle">Testar</div>
+      <ul class="sitems">
+        <li class="sitem"><div class="sdot"></div>Reels B2B provocativo com rosto + hook 3s</li>
+        <li class="sitem"><div class="sdot"></div>Carrossel educativo (slide 1 = pergunta)</li>
+        <li class="sitem"><div class="sdot"></div>Stories com estrutura Gancho → Prova → CTA</li>
+        <li class="sitem"><div class="sdot"></div>Gamificação Stories 1x/semana (enquete nativa)</li>
+        <li class="sitem"><div class="sdot"></div>Todos os posts às 15h · Stories 8h + 14h + 17h</li>
+      </ul>
+    </div>
+    <div class="scard s3">
+      <div class="sbg">S3</div>
+      <span class="snum">Semana 3 · Dias 15–21</span>
+      <div class="stitle">Consolidar</div>
+      <ul class="sitems">
+        <li class="sitem"><div class="sdot"></div>Manter formato com mais comentários de compra</li>
+        <li class="sitem"><div class="sdot"></div>1 Reels prova social: pedido + cidade + valor</li>
+        <li class="sitem"><div class="sdot"></div>Sequência prova social B2B nos Stories</li>
+        <li class="sitem"><div class="sdot"></div>Gamificação com conclusão pública (mostrar ganhador)</li>
+        <li class="sitem"><div class="sdot"></div>Stories com sticker de contagem regressiva</li>
+      </ul>
+    </div>
+    <div class="scard s4">
+      <div class="sbg">S4</div>
+      <span class="snum">Semana 4 · Dias 22–30</span>
+      <div class="stitle">Escalar</div>
+      <ul class="sitems">
+        <li class="sitem"><div class="sdot"></div>3 Reels + 3 carrosséis + 4–6 Stories/dia</li>
+        <li class="sitem"><div class="sdot"></div>Post fixado: processo de pedido B2B</li>
+        <li class="sitem"><div class="sdot"></div>CTAs com urgência + data de lançamento</li>
+        <li class="sitem"><div class="sdot"></div>Sticker localização nos Stories de lançamento</li>
+        <li class="sitem"><div class="sdot"></div>Gamificação toda semana — mecânica fixa</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- stories estrutura -->
+  <div class="cb p" style="margin-bottom:12px">
+    <span class="dlbl">Estrutura mínima diária de Stories B2B</span>
+    <div class="dtitle" style="margin-bottom:12px">3 Stories sequenciais obrigatórios</div>
+    <div class="g1" style="margin-bottom:0">
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--pink-bg);border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:14px;color:var(--pink);flex-shrink:0">1</div>
+        <div><div style="font-weight:600;font-size:13px;color:var(--ink);margin-bottom:3px">Gancho</div><div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Cria tensão ou curiosidade sem revelar tudo. Foto desfocada, pergunta provocativa, tela escura com texto, enquete nativa.</div></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--pink-bg);border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:14px;color:var(--pink);flex-shrink:0">2</div>
+        <div><div style="font-weight:600;font-size:13px;color:var(--ink);margin-bottom:3px">Prova / Conteúdo</div><div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Entrega o que o gancho prometeu. Produto com contexto de venda, pedido com valor do pedido, reposição com argumento de mercado.</div></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--pink-bg);border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:14px;color:var(--pink);flex-shrink:0">3</div>
+        <div><div style="font-weight:600;font-size:13px;color:var(--ink);margin-bottom:3px">CTA com destino específico</div><div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Sticker de link para o WhatsApp + instrução específica. "Esse lote fecha hoje às 18h. Clica no link agora e garante a sua quantidade."</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-bottom:24px">
+    <div class="cb b">
+      <span class="dlbl">CTA que não converte</span>
+      <div class="dtitle">Nunca use CTA genérico</div>
+      <div class="dbody">"Chame no WhatsApp" sem contexto não move lojista. Ela precisa de razão específica para agir agora, não depois.</div>
+    </div>
+    <div class="cb p">
+      <span class="dlbl">Fórmula que converte</span>
+      <div class="dtitle">Urgência + data + destino</div>
+      <div class="dbody">"Exclusividade fecha [dia] — link na bio agora." Especificidade cria pressão de tempo real e destino claro.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ CHECKLIST ════ -->
+<div id="sec-checklist" class="section">
+  <div class="sec-head">
+    <div class="badge p">Fase 6</div>
+    <h2>CHECKLIST COMPLETA</h2>
+    <p>Feed + Stories · Marque cada item antes de publicar</p>
+  </div>
+
+  <div class="prog-bar-wrap">
+    <div class="prog-track"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+    <div class="prog-lbl" id="pl">0 de 20 itens concluídos</div>
+  </div>
+
+  <div class="chk-group">
+    <div class="chk-gtitle b">Antes de qualquer post</div>
+    <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Definir o formato: Reels, carrossel B2B ou sequência de Stories</div><span class="chk-tag b">Produção</span></div>
+    <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Verificar: já postei no feed hoje? Nunca dois posts no mesmo dia</div><span class="chk-tag b">Cadência</span></div>
+    <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Feed: agendar entre 14h–16h · Stories: 8h, 14h e 17h</div><span class="chk-tag b">Horário</span></div>
+  </div>
+
+  <div class="chk-group">
+    <div class="chk-gtitle p">Checklist para Reels</div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Rosto da proprietária nos primeiros 2 segundos — sem exceção</div><span class="chk-tag p">Reels</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Voz humana original — trilha pode existir mas não pode dominar</div><span class="chk-tag p">Reels</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Hook nos 3s: pergunta implícita — não afirmação, não descrição de produto</div><span class="chk-tag p">Reels</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Duração entre 60 e 90 segundos</div><span class="chk-tag p">Reels</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">CTA específico para lojista nos últimos 10s com urgência e data</div><span class="chk-tag p">Reels</span></div>
+  </div>
+
+  <div class="chk-group">
+    <div class="chk-gtitle b">Checklist para carrossel B2B</div>
+    <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Slide 1: proprietária segurando produto — nunca flat lay isolado</div><span class="chk-tag b">Carrossel</span></div>
+    <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Título do slide 1: pergunta ou problema da lojista</div><span class="chk-tag b">Carrossel</span></div>
+    <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Slides 2–5: argumento de venda para a lojista usar com a cliente final</div><span class="chk-tag b">Carrossel</span></div>
+    <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Último slide: preço atacado + CTA + print de feedback de lojista real</div><span class="chk-tag b">Carrossel</span></div>
+  </div>
+
+  <div class="chk-group">
+    <div class="chk-gtitle p">Checklist para Stories</div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Estrutura: Gancho → Prova → CTA em 3 Stories sequenciais</div><span class="chk-tag p">Stories</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">CTA com sticker de link nativo para WhatsApp — não texto genérico</div><span class="chk-tag p">Stories</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Pelo menos 1 Stories com sticker interativo nativo (enquete, quiz ou caixinha) por dia</div><span class="chk-tag p">Stories</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Nenhum aviso operacional no Stories de feed — vai para o grupo de WhatsApp</div><span class="chk-tag stop">Parar</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Sticker de localização "Goiânia Moda Infantil Atacado" nos Stories de lançamento</div><span class="chk-tag p">Stories</span></div>
+  </div>
+
+  <div class="chk-group">
+    <div class="chk-gtitle p">O que nunca postar no feed</div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Foto estática de produto sem rosto, narrativa ou contexto comercial</div><span class="chk-tag stop">Parar</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Republicação D2C de influenciadora sem adaptar para lojista B2B</div><span class="chk-tag stop">Parar</span></div>
+    <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Hook de afirmação pura — usar sempre pergunta implícita no lugar</div><span class="chk-tag stop">Parar</span></div>
+  </div>
+</div>
+
+<!-- ════ CONTEÚDOS ════ -->
+<div id="sec-conteudos" class="section">
+  <div class="sec-head">
+    <div class="badge">Fase 7</div>
+    <h2>6 CONTEÚDOS DESTA SEMANA</h2>
+    <p>3 para o feed · 3 sequências de Stories · CTA específico para lojista</p>
+  </div>
+
+  <div style="margin-bottom:12px"><div class="badge">Feed</div></div>
+
+  <div class="cb b con-card">
+    <div class="con-num">01</div>
+    <span class="con-fmt">Reels · Aquisição B2B</span>
+    <span class="con-day">Terça · 15h</span>
+    <div class="con-hook">"Toda lojista que compra de mim pela primeira vez me faz a mesma pergunta."</div>
+    <ul class="con-steps">
+      <li class="con-step"><span class="stepn">0–5s</span>Rosto em câmera, tom direto. Hook verbal imediato.</li>
+      <li class="con-step"><span class="stepn">5–20s</span>Mostrar a pergunta mais comum sobre exclusividade.</li>
+      <li class="con-step"><span class="stepn">20–40s</span>Explicar o processo real: 2x/semana, grupo, peças limitadas.</li>
+      <li class="con-step"><span class="stepn">40–55s</span>CTA com data do próximo lançamento.</li>
+    </ul>
+    <div class="cta-pill">Entra no grupo — lançamento é [dia]</div>
+  </div>
+
+  <div class="cb p con-card">
+    <div class="con-num">02</div>
+    <span class="con-fmt">Carrossel · Educativo lojista</span>
+    <span class="con-day">Quarta · 15h</span>
+    <div class="con-hook">"Essas 4 peças venderam 3x mais rápido no frio — você provavelmente não tem nenhuma."</div>
+    <ul class="con-steps">
+      <li class="con-step"><span class="stepn">Slide 1</span>Proprietária com peças. Título provocativo no topo.</li>
+      <li class="con-step"><span class="stepn">Slides 2–5</span>Uma peça + argumento de venda para a cliente final.</li>
+      <li class="con-step"><span class="stepn">Slide 6</span>Preço de atacado + CTA direto.</li>
+      <li class="con-step"><span class="stepn">Slide 7</span>Print de feedback de lojista que vendeu a peça.</li>
+    </ul>
+    <div class="cta-pill">Qual você quer no estoque? Link na bio</div>
+  </div>
+
+  <div class="cb b con-card">
+    <div class="con-num">03</div>
+    <span class="con-fmt">Reels · Prova social real</span>
+    <span class="con-day">Sexta · 15h</span>
+    <div class="con-hook">"Ela fez um pedido de R$ 3.200 em um dia. De [cidade]. Olha o que ela pediu."</div>
+    <ul class="con-steps">
+      <li class="con-step"><span class="stepn">0–5s</span>Valor do pedido visível na tela. Hook de número.</li>
+      <li class="con-step"><span class="stepn">5–20s</span>Vídeo da separação do pedido. Processo real.</li>
+      <li class="con-step"><span class="stepn">20–35s</span>Embalagem + etiquetagem. Escala e profissionalismo.</li>
+      <li class="con-step"><span class="stepn">35–50s</span>Depoimento da lojista em áudio ou texto na tela.</li>
+    </ul>
+    <div class="cta-pill">Se você quer ser a próxima — link na bio</div>
+  </div>
+
+  <div style="margin:20px 0 12px"><div class="badge p">Stories</div></div>
+
+  <div class="cb p con-card">
+    <div class="con-num">04</div>
+    <span class="con-fmt">Stories · Gamificação de qualificação</span>
+    <span class="con-day">Terça · 9h</span>
+    <div class="con-hook">Enquete nativa: "Quantas peças você compra por pedido no atacado?"</div>
+    <ul class="con-steps">
+      <li class="con-step"><span class="stepn">Story 1</span>Enquete nativa: Opção A "1 a 20 peças" / Opção B "21 ou mais". Fundo escuro, texto simples.</li>
+      <li class="con-step"><span class="stepn">Story 2</span>Resultado no dia seguinte: "X% de vocês compram 21+ — esse lote de hoje é pra vocês."</li>
+      <li class="con-step"><span class="stepn">Story 3</span>CTA com sticker de link: "Esse lançamento fecha hoje às 18h. Clica aqui."</li>
+    </ul>
+    <div class="cta-pill">Coleta dado real + abre conversa no DM</div>
+  </div>
+
+  <div class="cb b con-card">
+    <div class="con-num">05</div>
+    <span class="con-fmt">Stories · Prova social sequência</span>
+    <span class="con-day">Quarta · 14h</span>
+    <div class="con-hook">"Uma lojista de [cidade] fez um pedido essa semana que eu preciso mostrar pra vocês."</div>
+    <ul class="con-steps">
+      <li class="con-step"><span class="stepn">Story A</span>Texto sobre imagem desfocada do pedido. Suspense.</li>
+      <li class="con-step"><span class="stepn">Story B</span>Revelar o pedido: peças separadas + valor total visível. "R$ [X.XXX] em peças selecionadas."</li>
+      <li class="con-step"><span class="stepn">Story C</span>CTA com sticker de link: "Você quer montar um pedido assim? Lançamentos disponíveis. Clica aqui antes de fechar."</li>
+    </ul>
+    <div class="cta-pill">Revelação progressiva mantém a sequência aberta</div>
+  </div>
+
+  <div class="cb p con-card">
+    <div class="con-num">06</div>
+    <span class="con-fmt">Stories · Urgência de lançamento</span>
+    <span class="con-day">Sexta · 17h</span>
+    <div class="con-hook">"Chegou. E DESSA VEZ eu sei que vai acabar antes do fim do dia."</div>
+    <ul class="con-steps">
+      <li class="con-step"><span class="stepn">Story A</span>Vídeo 5s do marido ou proprietária abrindo sacola. "Chegou." Texto de urgência.</li>
+      <li class="con-step"><span class="stepn">Story B</span>Produto visível + sticker de contagem regressiva 24h + quantidade: "[X] unidades disponíveis."</li>
+      <li class="con-step"><span class="stepn">Story C</span>Sticker de link para WhatsApp + "Esse lote fecha amanhã ou quando acabar — o que vier primeiro."</li>
+    </ul>
+    <div class="cta-pill">Sticker regressivo gera notificação ativa na lojista</div>
+  </div>
+
+  <div class="resultado-box" style="margin-top:24px">
+    <h2><span class="b">PERFIL QUE</span><br><span class="p">ATRAI LOJISTAS</span></h2>
+    <p style="margin-top:16px">Feed + Stories funcionando como sistema. Quem segue semana a semana chega no dia 30 com cadência definida, Stories como funil B2B e checklist como hábito. O alcance orgânico é consequência da consistência com os dados certos.</p>
+  </div>
+</div>
+
+<!-- ── BOTTOM NAV (mobile only) ── -->
+<div class="bottom-nav" id="bottom-nav">
+  <div class="bn-pill ab" onclick="goTo('overview',this)">Visão</div>
+  <div class="bn-pill" onclick="goTo('diag',this)">Diagnóstico</div>
+  <div class="bn-pill" onclick="goTo('algo',this)">Algoritmo</div>
+  <div class="bn-pill" onclick="goTo('formatos',this)">Formatos</div>
+  <div class="bn-pill" onclick="goTo('erros',this)">Erros Feed</div>
+  <div class="bn-pill" onclick="goTo('stories',this)">Stories</div>
+  <div class="bn-pill" onclick="goTo('plano',this)">Plano</div>
+  <div class="bn-pill" onclick="goTo('checklist',this)">Checklist</div>
+  <div class="bn-pill" onclick="goTo('conteudos',this)">Conteúdos</div>
+</div>
+
+<div class="footer">@manancialkids3 · Sistema de Conteúdo B2B · Feed + Stories · Abril 2026</div>
+
+<script>
+const TOTAL = 20;
+let checked = 0;
+
+const sections = ['overview','diag','algo','formatos','erros','stories','plano','checklist','conteudos'];
+
+function goTo(name, el) {
+  sections.forEach(s => {
+    const sec = document.getElementById('sec-' + s);
+    if (sec) sec.classList.remove('active');
+  });
+
+  const target = document.getElementById('sec-' + name);
+  if (target) target.classList.add('active');
+
+  // top nav
+  document.querySelectorAll('#top-nav .pill').forEach(p => p.classList.remove('ab','ap'));
+  // bottom nav
+  document.querySelectorAll('#bottom-nav .bn-pill').forEach(p => p.classList.remove('ab','ap'));
+
+  const color = (name === 'stories' || name === 'checklist' || name === 'conteudos' || name === 'erros') ? 'ap' : 'ab';
+
+  // find matching pills
+  document.querySelectorAll('#top-nav .pill, #bottom-nav .bn-pill').forEach(p => {
+    if (p.getAttribute('onclick') && p.getAttribute('onclick').includes("'" + name + "'")) {
+      p.classList.add(color);
+    }
+  });
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function chk(item, c) {
+  const box = item.querySelector('.chkbox');
+  const lbl = item.querySelector('.chk-lbl');
+  const on = box.classList.contains('b') || box.classList.contains('p');
+  if (on) { box.classList.remove('b','p'); lbl.classList.remove('done'); checked = Math.max(0, checked-1); }
+  else     { box.classList.add(c);          lbl.classList.add('done');    checked = Math.min(TOTAL, checked+1); }
+  const pct = Math.round(checked / TOTAL * 100);
+  document.getElementById('pf').style.width = pct + '%';
+  document.getElementById('pl').textContent = checked + ' de ' + TOTAL + ' itens concluídos';
+  document.getElementById('prog-badge').textContent = checked + '/' + TOTAL;
+}
+</script>
+</body>
+</html>

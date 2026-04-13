@@ -1,3 +1,6 @@
+Manancialkids system · HTML
+Copiar
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,31 +17,31 @@
   --r:12px; --r-sm:8px;
   --nav-h:56px;
 }
-
+ 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-
+ 
 html{scroll-behavior:smooth}
-
+ 
 body{
   background:var(--bg);color:var(--ink);
   font-family:'Poppins',sans-serif;
   min-height:100vh;overflow-x:hidden;
   padding-bottom:80px;
 }
-
+ 
 /* ── STICKY TOP NAV ── */
 .topbar{
   position:sticky;top:0;z-index:100;
   background:var(--card);
   border-bottom:1px solid var(--border);
 }
-
+ 
 .topbar-inner{
   display:flex;align-items:center;
   padding:0 16px;height:var(--nav-h);
   gap:0;
 }
-
+ 
 .brand{
   font-family:'League Spartan',sans-serif;
   font-weight:900;font-size:17px;letter-spacing:.5px;
@@ -46,7 +49,7 @@ body{
   padding-right:14px;border-right:1px solid var(--border);
   margin-right:4px;
 }
-
+ 
 /* scrollable pill nav */
 .pill-nav{
   display:flex;align-items:center;gap:4px;
@@ -55,7 +58,7 @@ body{
   flex:1;
 }
 .pill-nav::-webkit-scrollbar{display:none}
-
+ 
 .pill{
   display:flex;align-items:center;
   font-family:'Poppins',sans-serif;font-size:11px;font-weight:500;
@@ -67,7 +70,7 @@ body{
 .pill:hover{border-color:var(--border-s);color:var(--ink)}
 .pill.ab{background:var(--blue);border-color:var(--blue);color:#fff}
 .pill.ap{background:var(--pink);border-color:var(--pink);color:#fff}
-
+ 
 /* progress badge */
 .prog-badge{
   margin-left:auto;padding-left:12px;flex-shrink:0;
@@ -75,7 +78,7 @@ body{
   color:var(--blue-dark);white-space:nowrap;
   border-left:1px solid var(--border);
 }
-
+ 
 /* ── HERO ── */
 .hero{
   background:var(--card);border-bottom:1px solid var(--border);
@@ -88,7 +91,7 @@ body{
   background:radial-gradient(ellipse,rgba(34,119,204,.07) 0%,transparent 70%);
   pointer-events:none;
 }
-
+ 
 .badge{
   display:inline-block;
   background:var(--blue);color:#fff;
@@ -97,19 +100,19 @@ body{
   padding:5px 14px;border-radius:2px;margin-bottom:16px;
 }
 .badge.p{background:var(--pink)}
-
+ 
 .hero h1{
   font-family:'League Spartan',sans-serif;font-weight:900;
   font-size:clamp(44px,10vw,88px);line-height:.88;letter-spacing:-2px;
   color:var(--ink);
 }
 .hero h1 span{color:var(--blue);display:block}
-
+ 
 .hero-sub{
   margin-top:16px;font-size:14px;color:var(--ink-muted);
   max-width:460px;margin-left:auto;margin-right:auto;line-height:1.65;
 }
-
+ 
 /* ── KPI STRIP ── */
 .kpi-strip{
   display:flex;overflow-x:auto;gap:0;
@@ -118,14 +121,14 @@ body{
   scrollbar-width:none;-ms-overflow-style:none;
 }
 .kpi-strip::-webkit-scrollbar{display:none}
-
+ 
 .kpi{
   flex:0 0 auto;min-width:110px;
   padding:16px 20px;text-align:center;
   border-right:1px solid var(--border);
 }
 .kpi:last-child{border-right:none}
-
+ 
 .kpi-num{
   font-family:'League Spartan',sans-serif;font-weight:900;
   font-size:28px;line-height:1;display:block;
@@ -133,18 +136,18 @@ body{
 .kpi-num.b{color:var(--blue)}
 .kpi-num.p{color:var(--pink)}
 .kpi-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;display:block;line-height:1.3}
-
+ 
 /* ── SECTIONS ── */
 .section{display:none;padding:20px 16px 0}
 .section.active{display:block}
-
+ 
 .sec-head{text-align:center;padding:8px 0 24px}
 .sec-head h2{
   font-family:'League Spartan',sans-serif;font-weight:900;
   font-size:clamp(26px,6vw,44px);letter-spacing:-1px;color:var(--ink);margin-top:10px;
 }
 .sec-head p{font-size:13px;color:var(--ink-muted);margin-top:8px;line-height:1.5}
-
+ 
 /* ── CARD BASE ── */
 .cb{
   background:var(--card);border:1px solid var(--border);
@@ -154,12 +157,12 @@ body{
 .cb::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .cb.b::before{background:var(--blue)}
 .cb.p::before{background:var(--pink)}
-
+ 
 /* ── RESPONSIVE GRID ── */
 .g1{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:24px}
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:24px}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:24px}
-
+ 
 @media(max-width:600px){
   .g2,.g3{grid-template-columns:1fr}
   .g2.force2{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -167,7 +170,7 @@ body{
 @media(min-width:601px) and (max-width:800px){
   .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
+ 
 /* ── DIAG CARDS ── */
 .dnum{
   font-family:'League Spartan',sans-serif;font-weight:900;font-size:60px;
@@ -175,13 +178,13 @@ body{
 }
 .cb.b .dnum{color:rgba(34,119,204,.06)}
 .cb.p .dnum{color:rgba(204,34,119,.06)}
-
+ 
 .dlbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:block}
 .dtitle{font-family:'League Spartan',sans-serif;font-weight:700;font-size:18px;line-height:1.15;margin-bottom:8px}
 .cb.b .dtitle{color:var(--blue)}
 .cb.p .dtitle{color:var(--pink)}
 .dbody{font-size:12px;color:var(--ink-mid);line-height:1.6}
-
+ 
 .tag{
   display:inline-block;font-size:9px;font-weight:600;letter-spacing:1.5px;
   text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-top:12px;
@@ -191,10 +194,10 @@ body{
 .tag.stop{background:#fde8e8;color:#c0392b}
 .tag.go{background:#e8f8ee;color:#1a7a3a}
 .tag.warn{background:#fef8e7;color:#8a6200}
-
+ 
 /* ── TIMELINE (mobile-first) ── */
 .tl{position:relative;margin-bottom:24px}
-
+ 
 /* vertical line left on mobile */
 .tl::before{
   content:'';position:absolute;
@@ -202,7 +205,7 @@ body{
   background:linear-gradient(to bottom,var(--blue),var(--pink),var(--blue));
   opacity:.2;
 }
-
+ 
 .tl-item{
   display:flex;gap:12px;
   margin-bottom:20px;
@@ -211,9 +214,9 @@ body{
 .tl-item:nth-child(1){animation-delay:.05s}
 .tl-item:nth-child(2){animation-delay:.1s}
 .tl-item:nth-child(3){animation-delay:.15s}
-
+ 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
+ 
 .tl-node{
   flex-shrink:0;width:44px;height:44px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -223,7 +226,7 @@ body{
 }
 .tl-node.b{border-color:var(--blue);color:var(--blue)}
 .tl-node.p{border-color:var(--pink);color:var(--pink)}
-
+ 
 .tl-body{flex:1;min-width:0}
 .tl-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px;display:block}
 .tl-title{font-family:'League Spartan',sans-serif;font-weight:700;font-size:17px;line-height:1.1;margin-bottom:10px}
@@ -234,14 +237,14 @@ body{
 .tl-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .tl-item.b .tl-dot{background:var(--blue)}
 .tl-item.p .tl-dot{background:var(--pink)}
-
+ 
 .ibox{
   margin-top:12px;background:var(--bg);
   border:1px dashed var(--border-s);border-radius:var(--r-sm);padding:10px 12px;
 }
 .ibox-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px;display:block}
 .ibox-txt{font-size:11px;color:var(--ink-muted)}
-
+ 
 /* ── ERRO CARDS ── */
 .ecard{
   background:var(--card);border:1px solid var(--border);
@@ -257,7 +260,7 @@ body{
 }
 .etitle{font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--pink);margin-bottom:4px;line-height:1.1}
 .edesc{font-size:12px;color:var(--ink-mid);line-height:1.6}
-
+ 
 /* ── SEMANAS (scroll horizontal on mobile) ── */
 .semanas-scroll{
   display:flex;gap:12px;overflow-x:auto;
@@ -265,7 +268,7 @@ body{
   scrollbar-width:none;-ms-overflow-style:none;
 }
 .semanas-scroll::-webkit-scrollbar{display:none}
-
+ 
 .scard{
   flex:0 0 240px;background:var(--card);
   border:1px solid var(--border);border-radius:var(--r);
@@ -274,31 +277,31 @@ body{
 .scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .scard.s1::before,.scard.s3::before{background:var(--pink)}
 .scard.s2::before,.scard.s4::before{background:var(--blue)}
-
+ 
 .sbg{
   font-family:'League Spartan',sans-serif;font-weight:900;font-size:72px;
   position:absolute;bottom:-6px;right:8px;line-height:1;pointer-events:none;
 }
 .scard.s1 .sbg,.scard.s3 .sbg{color:var(--pink-bg)}
 .scard.s2 .sbg,.scard.s4 .sbg{color:var(--blue-bg)}
-
+ 
 .snum{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px;display:block}
 .stitle{font-family:'League Spartan',sans-serif;font-weight:700;font-size:18px;margin-bottom:12px;line-height:1.1}
 .scard.s1 .stitle,.scard.s3 .stitle{color:var(--pink)}
 .scard.s2 .stitle,.scard.s4 .stitle{color:var(--blue)}
-
+ 
 .sitems{list-style:none;display:flex;flex-direction:column;gap:6px}
 .sitem{font-size:12px;color:var(--ink-mid);line-height:1.45;display:flex;gap:7px;align-items:flex-start}
 .sdot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .scard.s1 .sdot,.scard.s3 .sdot{background:var(--pink)}
 .scard.s2 .sdot,.scard.s4 .sdot{background:var(--blue)}
-
+ 
 /* ── CHECKLIST ── */
 .prog-bar-wrap{margin-bottom:20px}
 .prog-track{height:5px;background:var(--bg);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
 .prog-fill{height:100%;background:linear-gradient(to right,var(--blue),var(--pink));transition:width .4s ease}
 .prog-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);margin-top:6px;text-align:center}
-
+ 
 .chk-group{margin-bottom:24px}
 .chk-gtitle{
   font-family:'League Spartan',sans-serif;font-weight:700;font-size:16px;
@@ -308,7 +311,7 @@ body{
 .chk-gtitle::after{content:'';flex:1;height:1px;background:var(--border)}
 .chk-gtitle.b{color:var(--blue)}
 .chk-gtitle.p{color:var(--pink)}
-
+ 
 .chk-item{
   display:flex;align-items:flex-start;gap:10px;
   padding:10px 0;border-bottom:1px solid var(--border);
@@ -317,7 +320,7 @@ body{
 }
 .chk-item:last-child{border-bottom:none}
 .chk-item:active{background:var(--bg);border-radius:var(--r-sm)}
-
+ 
 .chkbox{
   width:20px;height:20px;border-radius:4px;
   border:1.5px solid var(--border-s);
@@ -329,10 +332,10 @@ body{
 .chkbox.p{background:var(--pink);border-color:var(--pink)}
 .chkbox svg{display:none}
 .chkbox.b svg,.chkbox.p svg{display:block}
-
+ 
 .chk-lbl{font-size:13px;color:var(--ink-mid);line-height:1.5;flex:1}
 .chk-lbl.done{text-decoration:line-through;color:var(--ink-faint)}
-
+ 
 .chk-tag{
   display:inline-block;font-size:9px;font-weight:600;letter-spacing:1px;
   text-transform:uppercase;padding:3px 7px;border-radius:2px;
@@ -341,7 +344,7 @@ body{
 .chk-tag.b{background:var(--blue-bg);color:var(--blue-dark)}
 .chk-tag.p{background:var(--pink-bg);color:var(--pink-dark)}
 .chk-tag.stop{background:#fde8e8;color:#c0392b}
-
+ 
 /* ── CONTEÚDOS ── */
 .con-card{padding:20px;margin-bottom:14px}
 .con-num{
@@ -364,7 +367,7 @@ body{
 }
 .cb.b .cta-pill{background:var(--blue-bg);color:var(--blue-dark);border-color:var(--blue-mid)}
 .cb.p .cta-pill{background:var(--pink-bg);color:var(--pink-dark);border-color:var(--pink-mid)}
-
+ 
 /* ── STORIES SECTION SPECIFICS ── */
 .story-stat-row{
   display:flex;align-items:center;gap:10px;
@@ -382,7 +385,7 @@ body{
 .story-views.b{color:var(--blue-dark)}
 .story-views.p{color:var(--pink-dark)}
 .story-views.r{color:#c0392b}
-
+ 
 .number-highlight{
   background:var(--card);border:1px solid var(--border);border-radius:var(--r);
   padding:16px;text-align:center;margin-bottom:10px;
@@ -395,7 +398,7 @@ body{
 .nh-num.p{color:var(--pink)}
 .nh-num.r{color:#c0392b}
 .nh-lbl{font-size:11px;color:var(--ink-mid);line-height:1.4}
-
+ 
 /* scroll hint arrows */
 .scroll-hint{
   font-size:10px;color:var(--ink-faint);letter-spacing:1px;
@@ -403,7 +406,7 @@ body{
   display:flex;align-items:center;justify-content:flex-end;gap:4px;
 }
 .scroll-hint::after{content:'→';font-size:12px}
-
+ 
 /* ── RESULTADO ── */
 .resultado-box{
   background:var(--card);border:1px solid var(--border);
@@ -421,7 +424,7 @@ body{
 .resultado-box h2 .b{color:var(--blue)}
 .resultado-box h2 .p{color:var(--pink)}
 .resultado-box p{font-size:13px;color:var(--ink-muted);line-height:1.7;max-width:380px;margin:0 auto}
-
+ 
 /* ── BOTTOM NAV (mobile) ── */
 .bottom-nav{
   display:none;
@@ -431,12 +434,12 @@ body{
   overflow-x:auto;scrollbar-width:none;
 }
 .bottom-nav::-webkit-scrollbar{display:none}
-
+ 
 @media(max-width:600px){
   .bottom-nav{display:flex;gap:6px}
   body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
 }
-
+ 
 .bn-pill{
   flex:0 0 auto;font-size:10px;font-weight:600;
   padding:7px 12px;border-radius:999px;cursor:pointer;
@@ -445,24 +448,24 @@ body{
 }
 .bn-pill.ab{background:var(--blue);border-color:var(--blue);color:#fff}
 .bn-pill.ap{background:var(--pink);border-color:var(--pink);color:#fff}
-
+ 
 /* ── DIVIDER ── */
 .divider{border:none;border-top:1px solid var(--border);margin:20px 0}
-
+ 
 /* ── FOOTER ── */
 .footer{
   text-align:center;padding:24px 16px;
   border-top:1px solid var(--border);background:var(--card);
   font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);
 }
-
+ 
 /* ── DESKTOP: reintroduce 2-col timeline ── */
 @media(min-width:860px){
   body{padding-bottom:0}
   .section{padding:28px 32px 0}
   .hero{padding:60px 40px 48px}
   .kpi{min-width:130px;padding:20px 28px}
-
+ 
   .tl{position:relative}
   .tl::before{
     left:50%;transform:translateX(-50%);
@@ -483,7 +486,7 @@ body{
   .tl-node{width:52px;height:52px;font-size:14px}
   .tl-node-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;margin-top:4px}
 }
-
+ 
 /* ── STORIES STAT GRID ── */
 .st-5-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}
 @media(max-width:400px){.st-5-grid{grid-template-columns:1fr}}
@@ -491,13 +494,14 @@ body{
 </style>
 </head>
 <body>
-
+ 
 <!-- ── STICKY TOP NAV (desktop) ── -->
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand">MK</div>
     <div class="pill-nav" id="top-nav">
       <div class="pill ab" onclick="goTo('overview',this)">Visão geral</div>
+      <div class="pill" onclick="goTo('cvse',this)" style="background:#fff8e1;border-color:#f0c040;color:#7a5c00;font-weight:600">Certo vs Errado</div>
       <div class="pill" onclick="goTo('diag',this)">Diagnóstico</div>
       <div class="pill" onclick="goTo('algo',this)">Algoritmo</div>
       <div class="pill" onclick="goTo('formatos',this)">Formatos</div>
@@ -510,14 +514,14 @@ body{
     <div class="prog-badge" id="prog-badge">0/20</div>
   </div>
 </div>
-
+ 
 <!-- ── HERO ── -->
 <div class="hero">
   <div class="badge">@manancialkids3 · Atacado B2B · Goiânia-GO</div>
   <h1>SISTEMA DE<span>CONTEÚDO</span></h1>
   <p class="hero-sub">Feed + Stories · Diagnóstico completo + plano de ação em 4 semanas para transformar um perfil catálogo em canal real de aquisição de lojistas.</p>
 </div>
-
+ 
 <!-- ── KPI STRIP ── -->
 <div class="kpi-strip">
   <div class="kpi"><span class="kpi-num b">141K</span><span class="kpi-lbl">Seguidores</span></div>
@@ -529,7 +533,7 @@ body{
   <div class="kpi"><span class="kpi-num b">37</span><span class="kpi-lbl">Cliques CTA direto</span></div>
   <div class="kpi"><span class="kpi-num p">3,3%</span><span class="kpi-lbl">Penetração Stories</span></div>
 </div>
-
+ 
 <!-- ════ VISÃO GERAL ════ -->
 <div id="sec-overview" class="section active">
   <div class="sec-head">
@@ -537,7 +541,7 @@ body{
     <h2>DIAGNÓSTICO EXECUTIVO</h2>
     <p>Os 5 números que resumem o problema — e a oportunidade</p>
   </div>
-
+ 
   <div class="st-5-grid">
     <div class="number-highlight"><div class="nh-num b">1,97%</div><div class="nh-lbl">Taxa de resposta Stories com gamificação. Todos os outros: 0%</div></div>
     <div class="number-highlight"><div class="nh-num b">37</div><div class="nh-lbl">Cliques no link WhatsApp pelo único Story com CTA direto</div></div>
@@ -545,7 +549,7 @@ body{
     <div class="number-highlight"><div class="nh-num p">3,3%</div><div class="nh-lbl">Penetração máxima dos Stories em 141k seguidores. Problema estrutural.</div></div>
     <div class="number-highlight"><div class="nh-num b">81%</div><div class="nh-lbl">Das views totais vêm de Stories. Motor subutilizado como funil B2B</div></div>
   </div>
-
+ 
   <div class="g2">
     <div class="cb b">
       <span class="dlbl">Score feed B2B</span>
@@ -573,7 +577,171 @@ body{
     </div>
   </div>
 </div>
-
+ 
+<!-- ════ CERTO VS ERRADO ════ -->
+<div id="sec-cvse" class="section">
+  <div class="sec-head">
+    <div class="badge" style="background:#b8860b">O que está certo vs errado</div>
+    <h2>ACERTOS E ERROS</h2>
+    <p>Por objetivo: alcance, visualização e vendas — o que está funcionando, o que não está e por que não está dando resultado</p>
+  </div>
+ 
+  <!-- OBJETIVO 1: ALCANCE -->
+  <div style="margin-bottom:28px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint)">Objetivo</div>
+      <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:22px;color:var(--ink)">MAIS ALCANCE</div>
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+    </div>
+ 
+    <div class="g1">
+      <!-- certo -->
+      <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid #1a7a3a;border-radius:0 var(--r) var(--r) 0;padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#e8f8ee;border:1.5px solid #1a7a3a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="11" height="9" viewBox="0 0 11 9"><path d="M1 4.5L4 7.5L10 1" fill="none" stroke="#1a7a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:#1a7a3a">O que está certo</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.6">Quando faz Reels com a proprietária em câmera, voz própria e um hook forte nos primeiros segundos, o conteúdo naturalmente chega para pessoas que ainda não seguem o perfil. Os Reels "Muita gente me julgou" e "Em 5 anos nunca vi" provam isso — ambos alcançaram quase 50% de não-seguidoras. A narrativa pessoal da empreendedora é o maior ativo de alcance que o perfil tem.</div>
+      </div>
+      <!-- errado -->
+      <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 var(--r) var(--r) 0;padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:var(--pink-bg);border:1.5px solid var(--pink);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1.5 1.5L8.5 8.5M8.5 1.5L1.5 8.5" fill="none" stroke="var(--pink)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--pink)">O que está errado</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.6">A maior parte do conteúdo postado são fotos de produto sem a proprietária em cena — só o produto, o preço e o tamanho. Esse tipo de post alcança em média 1.535 contas de 141 mil seguidoras. O algoritmo do Instagram não distribui esse formato para novas pessoas porque não detecta nenhum sinal de interesse — sem rosto, sem voz, sem retenção.</div>
+      </div>
+      <!-- por que não dá resultado -->
+      <div style="background:#fffbf0;border:1px solid #f0c040;border-radius:var(--r);padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#fff3cd;border:1.5px solid #b8860b;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:#b8860b">?</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:#7a5c00">Por que não dá resultado</div>
+        </div>
+        <div style="font-size:13px;color:#5a4200;line-height:1.6">O Instagram em 2025 distribui conteúdo para novas pessoas baseado em quanto tempo elas ficam assistindo. Foto de produto sem contexto é vista em menos de 1 segundo e pulada. O algoritmo registra isso como "conteúdo sem interesse" e para de mostrar para novas contas. Quanto mais posts assim são publicados em sequência, mais o perfil inteiro perde alcance — incluindo os Reels que funcionam.</div>
+      </div>
+      <!-- o que fazer -->
+      <div style="background:var(--blue-bg);border:1px solid var(--blue-mid);border-radius:var(--r);padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:var(--blue)">→</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--blue-dark)">O que fazer para ter mais alcance</div>
+        </div>
+        <div style="font-size:13px;color:var(--blue-dark);line-height:1.6">Substituir pelo menos 3 dos posts de produto puro por semana por Reels onde a proprietária fala diretamente para a lojista. O hook precisa criar uma pergunta nos primeiros 3 segundos — não mostrar o produto, mas fazer a pessoa querer continuar assistindo. Exemplo que já funcionou: "Toda lojista que compra de mim pela primeira vez me faz a mesma pergunta." Rosto em câmera, voz, pergunta implícita — esse é o formato que distribui.</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- OBJETIVO 2: VISUALIZAÇÃO -->
+  <div style="margin-bottom:28px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint)">Objetivo</div>
+      <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:22px;color:var(--ink)">MAIS VISUALIZAÇÕES</div>
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+    </div>
+ 
+    <div class="g1">
+      <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid #1a7a3a;border-radius:0 var(--r) var(--r) 0;padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#e8f8ee;border:1.5px solid #1a7a3a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="11" height="9" viewBox="0 0 11 9"><path d="M1 4.5L4 7.5L10 1" fill="none" stroke="#1a7a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:#1a7a3a">O que está certo</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.6">Os Stories já somam 81% de todas as visualizações do perfil nos últimos 90 dias — mais de 3 milhões de views vieram de Stories. A frequência de postagem diária nos Stories é um ativo real: a base segue abrindo o perfil todo dia. O Story "Bombom Premiado" provou que quando tem um mecanismo de ação, a audiência responde — 93 respostas diretas, a maior taxa de resposta de todo o período analisado.</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 var(--r) var(--r) 0;padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:var(--pink-bg);border:1.5px solid var(--pink);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1.5 1.5L8.5 8.5M8.5 1.5L1.5 8.5" fill="none" stroke="var(--pink)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--pink)">O que está errado</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.6">Apesar de 3 milhões de views em Stories, apenas 5% dessas visualizações geraram alguma interação. Isso significa que a grande maioria das pessoas abre, vê por menos de 2 segundos e passa para o próximo. Os Stories operacionais — "Bom dia, Correios saindo às 15h", avisos de separação de pedidos — são os mais vistos em frequência mas os que mais geram abandono imediato. Isso ensina o algoritmo a mostrar o perfil menos para as próximas seguidoras.</div>
+      </div>
+      <div style="background:#fffbf0;border:1px solid #f0c040;border-radius:var(--r);padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#fff3cd;border:1.5px solid #b8860b;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:#b8860b">?</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:#7a5c00">Por que não dá resultado</div>
+        </div>
+        <div style="font-size:13px;color:#5a4200;line-height:1.6">O Instagram mede quanto tempo cada pessoa fica em cada Story antes de pular. Quando 70% das pessoas pulam em menos de 2 segundos — o que acontece com os Stories de produto sem contexto e com os avisos operacionais — o algoritmo entende que aquele perfil não retém atenção e começa a colocá-lo mais para trás no carrossel de Stories. Com o tempo, um perfil de 141k seguidoras com essa taxa de skip chega a apenas 3,3% da base — 4.734 views no melhor Story. Isso não é problema de audiência. É problema de retenção.</div>
+      </div>
+      <div style="background:var(--blue-bg);border:1px solid var(--blue-mid);border-radius:var(--r);padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:var(--blue)">→</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--blue-dark)">O que fazer para ter mais visualizações</div>
+        </div>
+        <div style="font-size:13px;color:var(--blue-dark);line-height:1.6">Parar imediatamente de postar avisos operacionais nos Stories de feed — isso vai para o grupo de WhatsApp. Substituir pela estrutura de 3 Stories sequenciais: Gancho (cria curiosidade sem revelar) → Prova (entrega o que prometeu) → CTA com sticker de link. Adicionar pelo menos 1 sticker interativo nativo por dia — enquete, quiz ou caixinha de perguntas. Esses stickers fazem a pessoa parar e interagir em vez de pular, o que aumenta o tempo de tela e melhora a posição do perfil no carrossel de Stories das seguidoras.</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- OBJETIVO 3: VENDAS -->
+  <div style="margin-bottom:24px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint)">Objetivo</div>
+      <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:22px;color:var(--ink)">MAIS VENDAS</div>
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+    </div>
+ 
+    <div class="g1">
+      <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid #1a7a3a;border-radius:0 var(--r) var(--r) 0;padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#e8f8ee;border:1.5px solid #1a7a3a;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="11" height="9" viewBox="0 0 11 9"><path d="M1 4.5L4 7.5L10 1" fill="none" stroke="#1a7a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:#1a7a3a">O que está certo</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.6">Quando o conteúdo tem CTA específico com destino claro, a lojista age. O Story "Corre para os grupos WhatsApp" gerou 37 cliques no link — o maior número de conversões diretas de todo o período. O Bombom Premiado abriu 93 conversas no DM. O Reels "Em 5 anos nunca vi" gerou 108 seguimentos novos. Esses números provam que a audiência tem intenção de compra — ela age quando é convidada a agir com clareza.</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 var(--r) var(--r) 0;padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:var(--pink-bg);border:1.5px solid var(--pink);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1.5 1.5L8.5 8.5M8.5 1.5L1.5 8.5" fill="none" stroke="var(--pink)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--pink)">O que está errado</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-mid);line-height:1.6">A maior parte do conteúdo mostra produto para quem já segue — mas não convence quem ainda não comprou. O feed fala a linguagem de quem quer comprar uma peça para o próprio filho, não de quem quer comprar 30 peças para revender. Não há nenhum conteúdo nos últimos 90 dias que responda às perguntas reais de uma lojista nova: esse produto gira? outras lojistas compram aqui? como funciona o pedido? quanto eu consigo ganhar por peça?</div>
+      </div>
+      <div style="background:#fffbf0;border:1px solid #f0c040;border-radius:var(--r);padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#fff3cd;border:1.5px solid #b8860b;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:#b8860b">?</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:#7a5c00">Por que não dá resultado</div>
+        </div>
+        <div style="font-size:13px;color:#5a4200;line-height:1.6">Uma lojista que descobre o perfil pelo Reels emocional chega motivada — mas quando entra no feed, encontra fotos de produto sem preço de atacado, sem prova de que outras lojistas compram, sem explicação de como fazer o pedido. Ela sai sem comprar. Não porque o produto é ruim. Porque o conteúdo não fechou o ciclo: despertou interesse mas não deu o próximo passo. Venda em atacado B2B não acontece por impulso — acontece quando a lojista confia que o produto vai girar no estoque dela.</div>
+      </div>
+      <div style="background:var(--blue-bg);border:1px solid var(--blue-mid);border-radius:var(--r);padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:var(--blue)">→</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:14px;color:var(--blue-dark)">O que fazer para ter mais vendas</div>
+        </div>
+        <div style="font-size:13px;color:var(--blue-dark);line-height:1.6">Criar pelo menos 1 conteúdo por semana que responde a dor real da lojista: "essa peça vende mesmo?" — mostre pedidos reais com valor total e cidade da compradora. "Outras lojistas compram aqui?" — mostre depoimento em vídeo de quem já comprou. "Como funciona o pedido?" — Reels explicando o processo real em 60 segundos. E todo CTA precisa ter urgência real: data de fechamento do lote, quantidade disponível, ou benefício exclusivo para quem agir agora. "Chama no WhatsApp" sem contexto não converte. "Esse lote fecha hoje às 18h — 12 unidades restantes" converte.</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- RESUMO VISUAL -->
+  <div class="cb b" style="margin-bottom:24px">
+    <span class="dlbl">Resumo executivo — os 3 objetivos</span>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px">
+      <div style="background:#e8f8ee;border-radius:var(--r-sm);padding:12px;text-align:center">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:15px;color:#1a7a3a;margin-bottom:4px">ALCANCE</div>
+        <div style="font-size:11px;color:#1a5c28;line-height:1.5">Reels com rosto + voz já funcionam. Produto sem rosto mata o alcance dos posts seguintes.</div>
+      </div>
+      <div style="background:var(--pink-bg);border-radius:var(--r-sm);padding:12px;text-align:center">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:15px;color:var(--pink-dark);margin-bottom:4px">VISUALIZAÇÃO</div>
+        <div style="font-size:11px;color:var(--pink-dark);line-height:1.5">Stories têm 81% das views. Mas avisos operacionais ensinam o algoritmo a esconder o perfil.</div>
+      </div>
+      <div style="background:var(--blue-bg);border-radius:var(--r-sm);padding:12px;text-align:center">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:15px;color:var(--blue-dark);margin-bottom:4px">VENDAS</div>
+        <div style="font-size:11px;color:var(--blue-dark);line-height:1.5">A audiência age quando tem CTA claro. O problema é que 90% do conteúdo não pede ação nenhuma.</div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
 <!-- ════ DIAGNÓSTICO ════ -->
 <div id="sec-diag" class="section">
   <div class="sec-head">
@@ -590,7 +758,7 @@ body{
     <div class="cb p"><div class="dnum">06</div><span class="dlbl">Identidade</span><div class="dtitle">D2C contamina B2B</div><div class="dbody">Republicações de influenciadora D2C confundem o algoritmo sobre para quem distribuir. Atrai consumidora, não lojista.</div><span class="tag stop">Parar já</span></div>
   </div>
 </div>
-
+ 
 <!-- ════ ALGORITMO ════ -->
 <div id="sec-algo" class="section">
   <div class="sec-head">
@@ -607,7 +775,7 @@ body{
     <div class="cb b"><div class="dnum">R6</div><span class="dlbl">Janela</span><div class="dtitle">15h — pico absoluto</div><div class="dbody">57.921 seguidores ativos às 15h em todos os dias. Posts fora dessa janela desperdiçam alcance natural.</div></div>
   </div>
 </div>
-
+ 
 <!-- ════ FORMATOS ════ -->
 <div id="sec-formatos" class="section">
   <div class="sec-head">
@@ -615,7 +783,7 @@ body{
     <h2>ANÁLISE DE FORMATOS</h2>
     <p>O que priorizar, o que cortar e o mix ideal</p>
   </div>
-
+ 
   <div class="tl" style="max-width:860px;margin:0 auto">
     <div class="tl-item b">
       <div class="tl-node-wrap" style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
@@ -635,7 +803,7 @@ body{
       </div>
       <div class="tl-aside" style="display:none"></div>
     </div>
-
+ 
     <div class="tl-item p">
       <div class="tl-node-wrap" style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
         <div class="tl-node p">B2B</div>
@@ -652,7 +820,7 @@ body{
         <div class="ibox"><span class="ibox-lbl">Meta: 3 carrosséis B2B/semana (reduzir flat lay)</span><div class="ibox-txt">Educativo · Prova social · Lançamento de coleção</div></div>
       </div>
     </div>
-
+ 
     <div class="tl-item b">
       <div class="tl-node-wrap" style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
         <div class="tl-node b">81%</div>
@@ -672,7 +840,7 @@ body{
     </div>
   </div>
 </div>
-
+ 
 <!-- ════ ERROS FEED ════ -->
 <div id="sec-erros" class="section">
   <div class="sec-head">
@@ -689,7 +857,7 @@ body{
   <div class="ecard"><div class="enum">07</div><div><div class="etitle">Link direto para grupo sem qualificação</div><div class="edesc">16.966 cliques em 90 dias sem filtro. Sem dado de quantos são lojistas reais versus consumidoras finais.</div></div></div>
   <div class="ecard"><div class="enum">08</div><div><div class="etitle">Conteúdo D2C de influenciadora no perfil B2B</div><div class="edesc">Republicações de @minha_doce.helena atraem consumidora final e confundem o algoritmo sobre distribuição.</div></div></div>
 </div>
-
+ 
 <!-- ════ STORIES ════ -->
 <div id="sec-stories" class="section">
   <div class="sec-head">
@@ -697,7 +865,7 @@ body{
     <h2>STORIES B2B</h2>
     <p>81% das views, 5% das interações — o motor subutilizado</p>
   </div>
-
+ 
   <!-- top stories -->
   <div class="cb b" style="margin-bottom:12px">
     <span class="dlbl">Top Stories 30 dias — por visualizações</span>
@@ -727,7 +895,7 @@ body{
       <div class="story-views b">1.900</div>
     </div>
   </div>
-
+ 
   <!-- bottom stories -->
   <div class="cb p" style="margin-bottom:20px">
     <span class="dlbl">Bottom Stories — menor visualização / menor interação</span>
@@ -757,7 +925,7 @@ body{
       <div class="story-views r">1.363</div>
     </div>
   </div>
-
+ 
   <!-- assimetria -->
   <div class="cb b" style="margin-bottom:12px">
     <span class="dlbl">Assimetria crítica — mesmo período, mesma audiência</span>
@@ -773,13 +941,13 @@ body{
       </div>
     </div>
   </div>
-
+ 
   <!-- 8 erros stories -->
   <div class="sec-head" style="padding-top:24px">
     <div class="badge p">8 erros específicos</div>
     <h2>ERROS NOS STORIES</h2>
   </div>
-
+ 
   <div class="ecard" style="border-left-color:var(--blue)"><div class="enum" style="-webkit-text-stroke-color:var(--blue-mid);color:var(--blue-bg)">01</div><div><div class="etitle" style="color:var(--blue)">Stories operacionais destroem a sequência</div><div class="edesc">"Bom dia / Correios 15h": 386 views, 0 interações. Esse Story treina o algoritmo a exibir o perfil menos para quem pula. Pertence ao grupo de WhatsApp, não ao Stories de 141k seguidoras.</div></div></div>
   <div class="ecard" style="border-left-color:var(--blue)"><div class="enum" style="-webkit-text-stroke-color:var(--blue-mid);color:var(--blue-bg)">02</div><div><div class="etitle" style="color:var(--blue)">"Corre pro grupo" aparece 1x/mês, devia ser semanal</div><div class="edesc">37 cliques no link — maior conversão de todos os Stories. Esse formato provou funcionar. Está sendo usado uma vez por mês em vez de toda semana de lançamento.</div></div></div>
   <div class="ecard"><div class="enum">03</div><div><div class="etitle">Prova social sem CTA não converte</div><div class="edesc">Repost da @caroline_azevedo15: 77% de skip (1.051/1.363) sem CTA explícito. Depoimento de cliente precisa de sticker de link imediatamente embaixo.</div></div></div>
@@ -789,7 +957,7 @@ body{
   <div class="ecard"><div class="enum">07</div><div><div class="etitle">Sem arco narrativo entre Stories do mesmo dia</div><div class="edesc">Sequência atual: produto → produto → aviso → produto → repost. Um Stories B2B bem construído tem estrutura: Gancho → Prova → CTA. Isso não existe nos dados analisados.</div></div></div>
   <div class="ecard"><div class="enum">08</div><div><div class="etitle">Zero sticker de localização para descoberta externa</div><div class="edesc">Sticker "Goiânia — Moda Infantil Atacado" é a forma mais simples de chegar a lojistas que pesquisam fornecedores na cidade sem seguir o perfil. Não foi usado nenhuma vez nos 30 dias.</div></div></div>
 </div>
-
+ 
 <!-- ════ PLANO 30 DIAS ════ -->
 <div id="sec-plano" class="section">
   <div class="sec-head">
@@ -797,7 +965,7 @@ body{
     <h2>PLANO 30 DIAS</h2>
     <p>Feed + Stories · Parar → Testar → Consolidar → Escalar</p>
   </div>
-
+ 
   <div class="scroll-hint">deslize para ver as semanas</div>
   <div class="semanas-scroll">
     <div class="scard s1">
@@ -849,7 +1017,7 @@ body{
       </ul>
     </div>
   </div>
-
+ 
   <!-- stories estrutura -->
   <div class="cb p" style="margin-bottom:12px">
     <span class="dlbl">Estrutura mínima diária de Stories B2B</span>
@@ -869,7 +1037,7 @@ body{
       </div>
     </div>
   </div>
-
+ 
   <div class="g2" style="margin-bottom:24px">
     <div class="cb b">
       <span class="dlbl">CTA que não converte</span>
@@ -883,7 +1051,7 @@ body{
     </div>
   </div>
 </div>
-
+ 
 <!-- ════ CHECKLIST ════ -->
 <div id="sec-checklist" class="section">
   <div class="sec-head">
@@ -891,19 +1059,19 @@ body{
     <h2>CHECKLIST COMPLETA</h2>
     <p>Feed + Stories · Marque cada item antes de publicar</p>
   </div>
-
+ 
   <div class="prog-bar-wrap">
     <div class="prog-track"><div class="prog-fill" id="pf" style="width:0%"></div></div>
     <div class="prog-lbl" id="pl">0 de 20 itens concluídos</div>
   </div>
-
+ 
   <div class="chk-group">
     <div class="chk-gtitle b">Antes de qualquer post</div>
     <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Definir o formato: Reels, carrossel B2B ou sequência de Stories</div><span class="chk-tag b">Produção</span></div>
     <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Verificar: já postei no feed hoje? Nunca dois posts no mesmo dia</div><span class="chk-tag b">Cadência</span></div>
     <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Feed: agendar entre 14h–16h · Stories: 8h, 14h e 17h</div><span class="chk-tag b">Horário</span></div>
   </div>
-
+ 
   <div class="chk-group">
     <div class="chk-gtitle p">Checklist para Reels</div>
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Rosto da proprietária nos primeiros 2 segundos — sem exceção</div><span class="chk-tag p">Reels</span></div>
@@ -912,7 +1080,7 @@ body{
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Duração entre 60 e 90 segundos</div><span class="chk-tag p">Reels</span></div>
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">CTA específico para lojista nos últimos 10s com urgência e data</div><span class="chk-tag p">Reels</span></div>
   </div>
-
+ 
   <div class="chk-group">
     <div class="chk-gtitle b">Checklist para carrossel B2B</div>
     <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Slide 1: proprietária segurando produto — nunca flat lay isolado</div><span class="chk-tag b">Carrossel</span></div>
@@ -920,7 +1088,7 @@ body{
     <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Slides 2–5: argumento de venda para a lojista usar com a cliente final</div><span class="chk-tag b">Carrossel</span></div>
     <div class="chk-item" onclick="chk(this,'b')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Último slide: preço atacado + CTA + print de feedback de lojista real</div><span class="chk-tag b">Carrossel</span></div>
   </div>
-
+ 
   <div class="chk-group">
     <div class="chk-gtitle p">Checklist para Stories</div>
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Estrutura: Gancho → Prova → CTA em 3 Stories sequenciais</div><span class="chk-tag p">Stories</span></div>
@@ -929,7 +1097,7 @@ body{
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Nenhum aviso operacional no Stories de feed — vai para o grupo de WhatsApp</div><span class="chk-tag stop">Parar</span></div>
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Sticker de localização "Goiânia Moda Infantil Atacado" nos Stories de lançamento</div><span class="chk-tag p">Stories</span></div>
   </div>
-
+ 
   <div class="chk-group">
     <div class="chk-gtitle p">O que nunca postar no feed</div>
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Foto estática de produto sem rosto, narrativa ou contexto comercial</div><span class="chk-tag stop">Parar</span></div>
@@ -937,7 +1105,7 @@ body{
     <div class="chk-item" onclick="chk(this,'p')"><div class="chkbox"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chk-lbl">Hook de afirmação pura — usar sempre pergunta implícita no lugar</div><span class="chk-tag stop">Parar</span></div>
   </div>
 </div>
-
+ 
 <!-- ════ CONTEÚDOS ════ -->
 <div id="sec-conteudos" class="section">
   <div class="sec-head">
@@ -945,9 +1113,9 @@ body{
     <h2>6 CONTEÚDOS DESTA SEMANA</h2>
     <p>3 para o feed · 3 sequências de Stories · CTA específico para lojista</p>
   </div>
-
+ 
   <div style="margin-bottom:12px"><div class="badge">Feed</div></div>
-
+ 
   <div class="cb b con-card">
     <div class="con-num">01</div>
     <span class="con-fmt">Reels · Aquisição B2B</span>
@@ -961,7 +1129,7 @@ body{
     </ul>
     <div class="cta-pill">Entra no grupo — lançamento é [dia]</div>
   </div>
-
+ 
   <div class="cb p con-card">
     <div class="con-num">02</div>
     <span class="con-fmt">Carrossel · Educativo lojista</span>
@@ -975,7 +1143,7 @@ body{
     </ul>
     <div class="cta-pill">Qual você quer no estoque? Link na bio</div>
   </div>
-
+ 
   <div class="cb b con-card">
     <div class="con-num">03</div>
     <span class="con-fmt">Reels · Prova social real</span>
@@ -989,9 +1157,9 @@ body{
     </ul>
     <div class="cta-pill">Se você quer ser a próxima — link na bio</div>
   </div>
-
+ 
   <div style="margin:20px 0 12px"><div class="badge p">Stories</div></div>
-
+ 
   <div class="cb p con-card">
     <div class="con-num">04</div>
     <span class="con-fmt">Stories · Gamificação de qualificação</span>
@@ -1004,7 +1172,7 @@ body{
     </ul>
     <div class="cta-pill">Coleta dado real + abre conversa no DM</div>
   </div>
-
+ 
   <div class="cb b con-card">
     <div class="con-num">05</div>
     <span class="con-fmt">Stories · Prova social sequência</span>
@@ -1017,7 +1185,7 @@ body{
     </ul>
     <div class="cta-pill">Revelação progressiva mantém a sequência aberta</div>
   </div>
-
+ 
   <div class="cb p con-card">
     <div class="con-num">06</div>
     <span class="con-fmt">Stories · Urgência de lançamento</span>
@@ -1030,16 +1198,190 @@ body{
     </ul>
     <div class="cta-pill">Sticker regressivo gera notificação ativa na lojista</div>
   </div>
-
+ 
   <div class="resultado-box" style="margin-top:24px">
     <h2><span class="b">PERFIL QUE</span><br><span class="p">ATRAI LOJISTAS</span></h2>
     <p style="margin-top:16px">Feed + Stories funcionando como sistema. Quem segue semana a semana chega no dia 30 com cadência definida, Stories como funil B2B e checklist como hábito. O alcance orgânico é consequência da consistência com os dados certos.</p>
   </div>
 </div>
-
+ 
+<!-- ════ CERTO vs ERRADO — blocos extras integrados na seção principal via JS ════ -->
+<div id="sec-cvse-extra" class="section" style="display:none">
+ 
+  <div class="sec-head">
+    <div class="badge" style="background:#e8a000">Radiografia</div>
+    <h2>CERTO VS ERRADO</h2>
+    <p>O que você já faz bem, onde está o vazamento — e o que muda para vender mais</p>
+  </div>
+ 
+  <!-- intro card -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:20px;border-top:3px solid #e8a000">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:18px;color:#7a5000;margin-bottom:8px">A verdade sobre o seu perfil</div>
+    <div style="font-size:13px;color:var(--ink-mid);line-height:1.7">Você tem 141k seguidoras, posta todo dia, tem produto bom, tem narrativa pessoal forte e uma operação real. O problema <strong style="color:var(--ink)">não é falta de esforço</strong>. O problema é que a maior parte do conteúdo está falando com a pessoa errada, no formato errado, sem pedir a ação certa. O resultado é muito trabalho com pouco retorno em vendas novas.</div>
+  </div>
+ 
+  <!-- BLOCO 1: FREQUÊNCIA -->
+  <div style="margin-bottom:16px">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px">01 · Frequência de postagem</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#e8f8ee;border:1px solid #97c459;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#1a7a3a;margin-bottom:6px">✓ O que está certo</div>
+        <div style="font-size:12px;color:#1a7a3a;line-height:1.6">Posta todo dia. Tem consistência real. Isso é raro e valioso — o algoritmo recompensa quem mantém frequência.</div>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09595;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#a32d2d;margin-bottom:6px">✗ O que está errado</div>
+        <div style="font-size:12px;color:#a32d2d;line-height:1.6">Quantidade sem qualidade de sinal. 5 posts de catálogo seguidos ensinam o algoritmo que seu perfil não merece distribuição para novas pessoas.</div>
+      </div>
+    </div>
+    <div style="background:var(--blue-bg);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px;border-left:3px solid var(--blue)">
+      <div style="font-size:11px;font-weight:600;color:var(--blue-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Como corrigir → mais alcance</div>
+      <div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Manter a frequência, mudar o mix. 3 Reels B2B + 3 carrosséis educativos + stories narrativos por semana. Um post de qualidade alcança 10x mais do que três posts de catálogo.</div>
+    </div>
+  </div>
+ 
+  <!-- BLOCO 2: PRODUTO -->
+  <div style="margin-bottom:16px">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px">02 · Mostrar produto</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#e8f8ee;border:1px solid #97c459;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#1a7a3a;margin-bottom:6px">✓ O que está certo</div>
+        <div style="font-size:12px;color:#1a7a3a;line-height:1.6">Você mostra produto constantemente. Fotografia limpa, produto organizado. A lojista consegue ver o que você vende.</div>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09595;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#a32d2d;margin-bottom:6px">✗ O que está errado</div>
+        <div style="font-size:12px;color:#a32d2d;line-height:1.6">Mostra o produto para a pessoa errada. Flat lay de peça com preço convence a mãe que quer comprar para o filho — não a lojista que precisa saber se vai girar no estoque.</div>
+      </div>
+    </div>
+    <div style="background:var(--blue-bg);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px;border-left:3px solid var(--blue)">
+      <div style="font-size:11px;font-weight:600;color:var(--blue-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Como corrigir → mais vendas</div>
+      <div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Mostre o produto com argumento de revenda. Não "essa blusa custa R$X" — mas "essa blusa você vende por R$Y, a mãe paga porque diz que é térmica de verdade". A lojista precisa ver o lucro dela, não só o produto.</div>
+    </div>
+  </div>
+ 
+  <!-- BLOCO 3: NARRATIVA PESSOAL -->
+  <div style="margin-bottom:16px">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px">03 · Narrativa pessoal e emocional</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#e8f8ee;border:1px solid #97c459;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#1a7a3a;margin-bottom:6px">✓ O que está certo</div>
+        <div style="font-size:12px;color:#1a7a3a;line-height:1.6">Seus Reels emocionais são os mais poderosos do perfil. "Em 5 anos nunca vi" e "Muita gente me julgou" chegam a 50% de não-seguidoras. A sua história conecta.</div>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09595;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#a32d2d;margin-bottom:6px">✗ O que está errado</div>
+        <div style="font-size:12px;color:#a32d2d;line-height:1.6">Os 3 posts fixados são todos narrativa emocional pessoal. Quem chega pelo Reels e vai ao perfil encontra sua história — não encontra por que deve comprar com você.</div>
+      </div>
+    </div>
+    <div style="background:var(--blue-bg);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px;border-left:3px solid var(--blue)">
+      <div style="font-size:11px;font-weight:600;color:var(--blue-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Como corrigir → mais alcance + vendas</div>
+      <div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Continue com a narrativa — ela é seu maior diferencial. Mas coloque um post fixado mostrando o processo de pedido, a exclusividade e os benefícios B2B. A emoção atrai. A prova de operação converte.</div>
+    </div>
+  </div>
+ 
+  <!-- BLOCO 4: STORIES -->
+  <div style="margin-bottom:16px">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px">04 · Uso dos Stories</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#e8f8ee;border:1px solid #97c459;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#1a7a3a;margin-bottom:6px">✓ O que está certo</div>
+        <div style="font-size:12px;color:#1a7a3a;line-height:1.6">Posta Stories todos os dias. 81% das views do perfil vêm de Stories. Você já tem audiência ativa olhando ali toda manhã.</div>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09595;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#a32d2d;margin-bottom:6px">✗ O que está errado</div>
+        <div style="font-size:12px;color:#a32d2d;line-height:1.6">81% das views mas só 5% das interações. A lojista abre, vê "Bom dia / Correios às 15h" e pula. Isso treina o algoritmo a te mostrar menos. Você está queimando audiência todos os dias.</div>
+      </div>
+    </div>
+    <div style="background:var(--pink-bg);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px;border-left:3px solid var(--pink)">
+      <div style="font-size:11px;font-weight:600;color:var(--pink-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Dado que prova → o Bombom gerou mais vendas que 5 dias de catálogo</div>
+      <div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Um único Story de gamificação (Bombom Premiado) gerou 93 conversas abertas no DM. Cinco Stories de produto estático na mesma semana: zero conversas. Você já provou o que funciona — e não repetiu.</div>
+    </div>
+  </div>
+ 
+  <!-- BLOCO 5: CTA -->
+  <div style="margin-bottom:16px">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px">05 · Chamada para ação (CTA)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#e8f8ee;border:1px solid #97c459;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#1a7a3a;margin-bottom:6px">✓ O que está certo</div>
+        <div style="font-size:12px;color:#1a7a3a;line-height:1.6">Você tem o link do grupo de WhatsApp na bio. 16.966 cliques em 90 dias. As pessoas chegam ao link — o destino existe.</div>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09595;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#a32d2d;margin-bottom:6px">✗ O que está errado</div>
+        <div style="font-size:12px;color:#a32d2d;line-height:1.6">O CTA é genérico e aparece raro. "Chama no WhatsApp" não convence quem nunca comprou. Sem urgência, sem razão específica para agir agora, a lojista guarda para depois — e depois nunca chega.</div>
+      </div>
+    </div>
+    <div style="background:var(--blue-bg);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px;border-left:3px solid var(--blue)">
+      <div style="font-size:11px;font-weight:600;color:var(--blue-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Como corrigir → mais vendas diretas</div>
+      <div style="font-size:12px;color:var(--ink-mid);line-height:1.5">"Exclusividade fecha hoje — entra no grupo agora, link na bio." Urgência real + data + destino claro. O Story "Corre para os grupos WhatsApp" provou: 37 cliques em um único Story. É 10x mais que qualquer post sem CTA.</div>
+    </div>
+  </div>
+ 
+  <!-- BLOCO 6: HORÁRIO -->
+  <div style="margin-bottom:16px">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px">06 · Horário de postagem</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#e8f8ee;border:1px solid #97c459;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#1a7a3a;margin-bottom:6px">✓ O que está certo</div>
+        <div style="font-size:12px;color:#1a7a3a;line-height:1.6">Você posta em dias úteis com regularidade. O perfil está ativo quando a lojista trabalha.</div>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09595;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#a32d2d;margin-bottom:6px">✗ O que está errado</div>
+        <div style="font-size:12px;color:#a32d2d;line-height:1.6">Sem horário fixo. Os dados mostram pico às 15h com 57.921 seguidoras ativas — mas posts aparecem em horários variados. Postar às 10h quando o pico é 15h é desperdiçar a maior janela de alcance natural.</div>
+      </div>
+    </div>
+    <div style="background:var(--blue-bg);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px;border-left:3px solid var(--blue)">
+      <div style="font-size:11px;font-weight:600;color:var(--blue-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Como corrigir → mais alcance sem esforço extra</div>
+      <div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Fixar 15h como horário padrão de todos os posts de feed. Stories: 8h–9h (abertura de dia), 14h–15h (produto) e 17h–18h (urgência de fechamento). Mesmo conteúdo, muito mais alcance.</div>
+    </div>
+  </div>
+ 
+  <!-- BLOCO 7: PROVA SOCIAL -->
+  <div style="margin-bottom:16px">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px">07 · Prova social de lojistas</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#e8f8ee;border:1px solid #97c459;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#1a7a3a;margin-bottom:6px">✓ O que está certo</div>
+        <div style="font-size:12px;color:#1a7a3a;line-height:1.6">Você tem destaques de "Feedbacks" no perfil. Tem print de avaliações. A prova social existe e está acessível para quem chega.</div>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09595;border-radius:var(--r);padding:16px">
+        <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:15px;color:#a32d2d;margin-bottom:6px">✗ O que está errado</div>
+        <div style="font-size:12px;color:#a32d2d;line-height:1.6">A prova social está escondida nos destaques — não está sendo usada como conteúdo ativo. Repost de depoimento sem CTA gerou 77% de skip. Prova social sem converter é só decoração.</div>
+      </div>
+    </div>
+    <div style="background:var(--pink-bg);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px;border-left:3px solid var(--pink)">
+      <div style="font-size:11px;font-weight:600;color:var(--pink-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Como corrigir → mais vendas por referência</div>
+      <div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Transforme prova social em conteúdo ativo. "Lojista de [cidade] fez R$ 3.200 em um pedido — veja o que ela escolheu" + CTA imediato. A lojista nova precisa ver que outras como ela compram aqui e lucram.</div>
+    </div>
+  </div>
+ 
+  <!-- resumo visual -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:24px;border-top:3px solid #e8a000">
+    <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:18px;color:var(--ink);margin-bottom:16px">O caminho direto para mais vendas</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--bg);border-radius:var(--r-sm)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#e8a000;display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:#fff;flex-shrink:0">1</div>
+        <div><div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px">Pare de falar com a consumidora final</div><div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Cada post precisa responder: "Por que uma lojista vai querer revender isso?" — não "que peça bonita".</div></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--bg);border-radius:var(--r-sm)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#e8a000;display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:#fff;flex-shrink:0">2</div>
+        <div><div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px">Use o que já provou funcionar — toda semana</div><div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Bombom: 93 DMs. "Corre pro grupo": 37 cliques. Reels emocional: 108 seguidoras. Você tem a prova. Só precisa repetir o padrão.</div></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--bg);border-radius:var(--r-sm)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#e8a000;display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:#fff;flex-shrink:0">3</div>
+        <div><div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px">Coloque urgência e destino em todo CTA</div><div style="font-size:12px;color:var(--ink-mid);line-height:1.5">Sem data de fechamento, sem razão para agir agora, a lojista guarda para depois. "Hoje às 18h" é mais poderoso que "qualquer hora".</div></div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--bg);border-radius:var(--r-sm)">
+        <div style="width:28px;height:28px;border-radius:50%;background:#e8a000;display:flex;align-items:center;justify-content:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:13px;color:#fff;flex-shrink:0">4</div>
+        <div><div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px">Poste tudo às 15h</div><div style="font-size:12px;color:var(--ink-mid);line-height:1.5">57.921 seguidoras ativas. Mesma dedicação, alcance dobrado — só trocando o horário.</div></div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+ 
 <!-- ── BOTTOM NAV (mobile only) ── -->
 <div class="bottom-nav" id="bottom-nav">
   <div class="bn-pill ab" onclick="goTo('overview',this)">Visão</div>
+  <div class="bn-pill" onclick="goTo('cvse',this)" style="background:#fff8e1;border-color:#f0c040;color:#7a5c00;font-weight:600">Certo/Errado</div>
   <div class="bn-pill" onclick="goTo('diag',this)">Diagnóstico</div>
   <div class="bn-pill" onclick="goTo('algo',this)">Algoritmo</div>
   <div class="bn-pill" onclick="goTo('formatos',this)">Formatos</div>
@@ -1049,41 +1391,58 @@ body{
   <div class="bn-pill" onclick="goTo('checklist',this)">Checklist</div>
   <div class="bn-pill" onclick="goTo('conteudos',this)">Conteúdos</div>
 </div>
-
+ 
 <div class="footer">@manancialkids3 · Sistema de Conteúdo B2B · Feed + Stories · Abril 2026</div>
-
+ 
 <script>
 const TOTAL = 20;
 let checked = 0;
-
-const sections = ['overview','diag','algo','formatos','erros','stories','plano','checklist','conteudos'];
-
+ 
+const sections = ['overview','cvse','diag','algo','formatos','erros','stories','plano','checklist','conteudos'];
+ 
 function goTo(name, el) {
   sections.forEach(s => {
     const sec = document.getElementById('sec-' + s);
     if (sec) sec.classList.remove('active');
   });
-
+ 
   const target = document.getElementById('sec-' + name);
   if (target) target.classList.add('active');
-
+ 
   // top nav
   document.querySelectorAll('#top-nav .pill').forEach(p => p.classList.remove('ab','ap'));
   // bottom nav
   document.querySelectorAll('#bottom-nav .bn-pill').forEach(p => p.classList.remove('ab','ap'));
-
+ 
   const color = (name === 'stories' || name === 'checklist' || name === 'conteudos' || name === 'erros') ? 'ap' : 'ab';
-
+  if (name === 'cvse') {
+    document.querySelectorAll('#top-nav .pill, #bottom-nav .bn-pill').forEach(p => {
+      if (p.getAttribute('onclick') && p.getAttribute('onclick').includes("'cvse'")) {
+        p.classList.remove('ab','ap');
+        p.style.background='#fff3cd';p.style.borderColor='#f0c040';p.style.color='#7a5c00';
+      } else {
+        p.style.background='';p.style.borderColor='';p.style.color='';
+      }
+    });
+    return;
+  }
+  // reset cvse styling on other nav items
+  document.querySelectorAll('#top-nav .pill, #bottom-nav .bn-pill').forEach(p => {
+    if (p.getAttribute('onclick') && p.getAttribute('onclick').includes("'cvse'")) {
+      p.style.background='#fff8e1';p.style.borderColor='#f0c040';p.style.color='#7a5c00';
+    }
+  });
+ 
   // find matching pills
   document.querySelectorAll('#top-nav .pill, #bottom-nav .bn-pill').forEach(p => {
     if (p.getAttribute('onclick') && p.getAttribute('onclick').includes("'" + name + "'")) {
       p.classList.add(color);
     }
   });
-
+ 
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
+ 
 function chk(item, c) {
   const box = item.querySelector('.chkbox');
   const lbl = item.querySelector('.chk-lbl');
